@@ -1,0 +1,77 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container h2{
+    margin-bottom: 20px;
+}
+
+.civilityContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    padding: 20px 0;
+    min-height: 20vh;
+    overflow: hidden;
+    border: 2px solid var(--background-card-color);
+    border-radius: 6px;
+    background: var(--background-card-color);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+.card:hover {
+    border-color: var(--color-hover-card);
+}
+
+.civility{
+    padding-top: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: black; */
+}
+
+.name {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nameValue {
+    margin-right: 10px;
+    /* width: 15%; */
+}
+
+.imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.imgContainer {
+    display: flex;
+    align-items: center;
+}
+
+.playerImg {
+    width: 100%;
+}

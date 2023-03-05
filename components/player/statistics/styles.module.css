@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titleComponent{
+    width: 100%;
+    color: var(--color-hover-card);
+}
+
+.statistics {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.competition h3 {
+    text-decoration: underline;
+    height: 23%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.competition {
+    width: 47%;
+    height: 20vh;
+    border: 2px solid var(--background-card-color);
+    background: var(--background-card-color);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: italic;
+}
+
+.civility{
+    padding-top: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nameValue {
+    margin-right: 10px;
+}
+

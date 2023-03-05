@@ -1,0 +1,62 @@
+export const teams = [
+  {
+    team: {
+      code: "MUN",
+      country: "England",
+      founded: 1878,
+      id: 33,
+      logo: "https://media.api-sports.io/football/teams/33.png",
+      name: "Manchester United",
+      national: false,
+    },
+    venue: {
+      address: "Sir Matt Busby Way",
+      capacity: 76212,
+      city: "Manchester",
+      id: 556,
+      image: "https://media.api-sports.io/football/venues/556.png",
+      name: "Old Trafford",
+      surface: "grass",
+    },
+  },
+  {
+    team: {
+      code: "PSG",
+      country: "France",
+      founded: 1980,
+      id: 78,
+      logo: "https://media.api-sports.io/football/teams/78.png",
+      name: "Paris saint germain",
+      national: false,
+    },
+    venue: {
+      address: "Boulogne",
+      capacity: 56612,
+      city: "Paris",
+      id: 557,
+      image: "https://media.api-sports.io/football/venues/557.png",
+      name: "Parc des princes",
+      surface: "grass",
+    },
+  },
+  {
+    team: {
+      code: "MUN",
+      country: "England",
+      founded: 1878,
+      id: 34,
+      logo: "https://media.api-sports.io/football/teams/34.png",
+      name: "National",
+      national: false,
+    },
+    venue: {
+      address: "Sir Matt Busby Way",
+      capacity: 76212,
+      city: "Manchester",
+      id: 556,
+      image: "https://media.api-sports.io/football/venues/556.png",
+      name: "Old Trafford",
+      surface: "grass",
+    },
+  },
+]

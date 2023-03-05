@@ -1,0 +1,9 @@
+.limitedRequests {
+    font-size: 2rem;
+    font-weight: bold;
+    display: none;
+}
+
+.active {
+    display: block;
+}

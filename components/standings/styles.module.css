@@ -1,0 +1,56 @@
+.table {
+	/* background: green; */
+	min-width: 270px;
+	width: auto;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 0 5px 50px #000;
+	border-spacing:0 10px;
+	/* border: 1px solid var(--main-text-color); */
+}
+
+.table thead tr {
+	background: var(--main-text-color);
+	color: #000;
+}
+
+.table tbody tr {
+	font-style: italic;
+}
+
+.link {
+	display: contents;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color: var(--color-hover-card);
+	font-weight: bold;
+}
+
+.active {
+	margin: 10px;
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.titlePage {
+	
+	font-weight: bold;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+
+.titlePage span {
+	color: var(--color-hover-card);
+}
+
+@media(min-width: 600px) {
+	.table {
+		min-width: 400px;
+	}
+}

@@ -1,0 +1,92 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: 48%;
+    height: 35vh;
+    overflow: hidden;
+    border: 2px solid var(--background-card-color);
+    background: var(--background-card-color);
+    border-radius: 6%;
+    padding: 1px ;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+}
+
+.card:hover {
+    border: 2px solid var(--color-hover-card);
+}
+
+.teamName, .positions {
+    width: 100%;
+    margin: 10px;
+}
+
+.positions {
+    font-size: 1.6rem;
+    color: var(--color-hover-card);
+    margin-bottom: 20px;
+}
+
+.teamName {
+    font-size: 1.8rem;
+}
+
+.name {
+    height: 20%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info {
+    height: 20%;
+}
+
+.imgContainer, .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgContainer {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.playerImg {
+    width: 70%;
+}
+
+@media (min-width: 500px) {
+    .playerImg {
+        width: 60%;
+    }
+}
+
+@media (min-width: 500px) {
+    .playerImg {
+        width: 50%;
+    }
+}
+
+@media (min-width: 796px) {
+    .card {
+        width: 32%;
+    }
+}
+
+@media (max-width: 796px) {
+    .positions {
+        font-size: 1.4rem;
+    }
+
+    .teamName {
+        font-size: 1.6rem;
+    }
+}
