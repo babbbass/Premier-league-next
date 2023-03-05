@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./styles.module.css"
-import { Palmares } from "@/components/player/palmares/palmares.tsx"
+import { Palmares } from "@/components/player/palmares/palmares"
 // import { player } from "@/utils/dataTest/player"
 
 type player = [
@@ -16,14 +16,12 @@ type player = [
   }
 ]
 export function Statistics({ player }: any) {
-  // console.log(player[0])
-
   return (
     <>
       <div className={styles.container}>
         <div className={styles.statistics}>
           <h2 className={styles.titleComponent}>Statistiques</h2>
-          {player[0].statistics.map((infos) => (
+          {player[0].statistics.map((infos: any) => (
             <div className={styles.competition}>
               <h3>{infos.league.name}</h3>
               <div className={styles.name}>

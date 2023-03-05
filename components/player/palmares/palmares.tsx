@@ -35,7 +35,7 @@ export function Palmares({ playerId }: any) {
   return (
     <div className={styles.palmares}>
       <h2 className={styles.titleComponent}>Palmares</h2>
-      {trophies.map((competition) => (
+      {trophies.map((competition: any) => (
         <div className={styles.competition}>
           <h3>{competition.league}</h3>
           <div>Place: {competition.place}</div>

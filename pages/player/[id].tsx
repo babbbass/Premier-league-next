@@ -9,7 +9,7 @@ export default function Player() {
 
   return (
     <main className={styles.main}>
-      <Civility playerId={parseInt(id)} season={2022} />
+      <Civility playerId={id} season={2022} />
     </main>
   )
 }

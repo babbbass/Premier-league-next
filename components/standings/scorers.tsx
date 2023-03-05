@@ -70,7 +70,7 @@ export function StandingScorers({
           </tr>
         </thead>
         <tbody>
-          {standing.map((player: any, key) => (
+          {standing.map((player: any, key: any) => (
             <Link href={`/player/${player.player.id}`} className={styles.link}>
               <tr>
                 <td>{key + 1}</td>

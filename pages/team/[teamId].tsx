@@ -20,7 +20,7 @@ export default function Players() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <TeamSquad teamId={parseInt(teamId)} />
+        <TeamSquad teamId={teamId} />
       </main>
     </>
   )

@@ -19,7 +19,7 @@ type player = {
   position: string
 }
 
-const fetchTeamSquad = async (teamId: number) => {
+const fetchTeamSquad = async (teamId: any) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/players/squads?team=${teamId}`,
     requestOptions
@@ -28,7 +28,7 @@ const fetchTeamSquad = async (teamId: number) => {
   return await response.json()
 }
 
-export function TeamSquad({ teamId }: team) {
+export function TeamSquad({ teamId }: any) {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["fetching team squad", teamId],
     queryFn: () => fetchTeamSquad(teamId),

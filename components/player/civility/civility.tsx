@@ -28,7 +28,7 @@ const fetchPlayerDatas = async (playerId: number, season: number) => {
   return await response.json()
 }
 
-export function Civility({ playerId, season }: player["player"]) {
+export function Civility({ playerId, season }: any) {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["fetch player", [playerId, season]],
     queryFn: () => fetchPlayerDatas(playerId, season),
