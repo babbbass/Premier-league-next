@@ -37,17 +37,16 @@ const fetchCompetition = async (competitionId: number) => {
     `${BASE_FOOTBALL_URL}/teams?league=${competitionId}&season=2022`,
     requestOptions
   )
-  // console.log(await response.json())
 
   return await response.json()
 }
 export function AllTeams({ competitionId }: allTeamsParameters) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["allTeams", competitionId],
-    queryFn: () => fetchCompetition(competitionId),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["allTeams", competitionId],
+  //   queryFn: () => fetchCompetition(competitionId),
+  // })
 
-  const teams = data ? data.response : []
+  // const teams = data ? data.response : []
 
   if (isError) {
     return <Error message='Erreur Requete' />

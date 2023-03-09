@@ -1,7 +1,6 @@
 import React from "react"
 import { useQuery, QueryClient } from "react-query"
 import styles from "./styles.module.css"
-// import { teams } from "@/utils/dataTest/teams"
 import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import Link from "next/link"
 import { standingTeams as standings } from "@/utils/dataTest/standing"
@@ -42,21 +41,21 @@ export function StandingTeams({
   season,
   active,
 }: standingTeams) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["allTeams", competitionId, season],
-    queryFn: () => fetchTeamsStanding(competitionId, season),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["allTeams", competitionId, season],
+  //   queryFn: () => fetchTeamsStanding(competitionId, season),
+  // })
 
-  const standings = data ? data.response[0]?.league.standings[0] : []
+  // const standings = data ? data.response[0]?.league.standings[0] : []
 
-  if (!standings) {
-    return (
-      <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
-    )
-  }
+  // if (!standings) {
+  //   return (
+  //     <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
+  //   )
+  // }
 
   return (
-    <div className={active ? styles.active : styles.hidden}>
+    <div className={active ? styles.active : styles.notActive}>
       <h2 className={styles.titlePage}>
         Classement
         <br />-<br />

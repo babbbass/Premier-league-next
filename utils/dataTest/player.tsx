@@ -10,19 +10,17 @@ export const player = [
           assists: 4,
         },
         team: {
-          name: "PsG",
+          name: "PSG",
         },
         league: {
           name: "Ligue 1",
         },
       },
     ],
-    player: [
-      {
-        player: {
-          id: 2467,
-        },
+    player: {
+      player: {
+        id: 2467,
       },
-    ],
+    },
   },
 ]

@@ -11,22 +11,15 @@ type standingProps = {
   active: boolean
 }
 
-type player = {
+type playerStats = {
   player: {
-    id: string
+    id: number
     name: string
   }
-  statistics: [
-    {
-      goals: {
-        assists: number
-        total: number
-      }
-      games: {
-        appearences: number
-      }
-    }
-  ]
+  statistics: {
+    games: { appearences: number }
+    goals: { assists: number; total: number }
+  }[]
 }
 
 const fetchTopAssists = async ({ season, competitionId }: any) => {
@@ -43,15 +36,15 @@ export function StandingAssists({
   season,
   active,
 }: standingProps) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["top assits", [competitionId, season]],
-    queryFn: () => fetchTopAssists({ season, competitionId }),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["top assits", [competitionId, season]],
+  //   queryFn: () => fetchTopAssists({ season, competitionId }),
+  // })
 
-  const standing = data ? data.response : []
+  // const standing = data ? data.response : []
 
   return (
-    <div className={active ? styles.active : styles.hidden}>
+    <div className={active ? styles.active : styles.notActive}>
       <h2 className={styles.titlePage}>
         Classement
         <br />-<br />
@@ -70,14 +63,17 @@ export function StandingAssists({
           </tr>
         </thead>
         <tbody>
-          {standing.map((player: any, key: number) => (
-            <Link href={`/player/${player.player.id}`} className={styles.link}>
+          {standing.map((statsPlayer: playerStats, key: number) => (
+            <Link
+              href={`/player/${statsPlayer.player.id}`}
+              className={styles.link}
+            >
               <tr>
-                <td>{key + 1}</td>
-                <td>{player.player.name}</td>
-                <td>{player.statistics[0].games.appearences}</td>
-                <td>{player.statistics[0].goals.assists}</td>
-                <td>{player.statistics[0].goals.total}</td>
+                <td>{++key}</td>
+                <td>{statsPlayer.player.name}</td>
+                <td>{statsPlayer.statistics[0].games.appearences}</td>
+                <td>{statsPlayer.statistics[0].goals.assists}</td>
+                <td>{statsPlayer.statistics[0].goals.total}</td>
               </tr>
             </Link>
           ))}

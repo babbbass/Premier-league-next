@@ -13,20 +13,14 @@ type standingProps = {
 
 type player = {
   player: {
-    id: string
+    id: number
     name: string
   }
-  statistics: [
-    {
-      goals: {
-        assists: number
-        total: number
-      }
-      games: {
-        appearences: number
-      }
-    }
-  ]
+
+  statistics: {
+    goals: { assists: number; total: number }
+    games: { appearences: number }
+  }[]
 }
 
 const fetchTopScorers = async ({ season, competitionId }: any) => {
@@ -43,15 +37,15 @@ export function StandingScorers({
   season,
   active,
 }: standingProps) {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["top Scorers", [competitionId, season]],
-    queryFn: () => fetchTopScorers({ competitionId, season }),
-  })
+  // const { data, isLoading, isError } = useQuery({
+  //   queryKey: ["top Scorers", [competitionId, season]],
+  //   queryFn: () => fetchTopScorers({ competitionId, season }),
+  // })
 
-  const standing = data ? data.response : []
+  // const standing = data ? data.response : []
 
   return (
-    <div className={active ? styles.active : styles.hidden}>
+    <div className={active ? styles.active : styles.notActive}>
       <h2 className={styles.titlePage}>
         Classement
         <br />-<br />
@@ -70,10 +64,10 @@ export function StandingScorers({
           </tr>
         </thead>
         <tbody>
-          {standing.map((player: any, key: any) => (
+          {standing.map((player: player, key: number) => (
             <Link href={`/player/${player.player.id}`} className={styles.link}>
               <tr>
-                <td>{key + 1}</td>
+                <td>{++key}</td>
                 <td>{player.player.name}</td>
                 <td>{player.statistics[0].games.appearences}</td>
                 <td>{player.statistics[0].goals.total}</td>
