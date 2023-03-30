@@ -5,19 +5,9 @@ import styles from "./styles.module.css"
 import { Statistics } from "@/components/player/statistics/statistics"
 import Link from "next/link"
 import { Error } from "@/components/error/error"
-
-type player = {
-  player: {
-    playerId: number
-    name: string
-    nationality: string
-    age: number
-    weight: number
-    height: number
-    photo: string
-    season: number
-  }
-}
+import { player as playerInfos } from "@/utils/dataTest/player"
+import { PlayerProps } from "@/types/PlayerType"
+import { Palmares } from "@/components/player/palmares/palmares"
 
 const fetchPlayerDatas = async (playerId: number, season: number) => {
   const response = await fetch(
@@ -28,17 +18,18 @@ const fetchPlayerDatas = async (playerId: number, season: number) => {
   return await response.json()
 }
 
-export function Civility({ playerId, season }: any) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["fetch player", [playerId, season]],
-    queryFn: () => fetchPlayerDatas(playerId, season),
-  })
+export function Civility({ id, season }: PlayerProps["player"]) {
+  //   const { isLoading, isError, data } = useQuery({
+  //     queryKey: ["fetch player", [id, season]],
+  //     queryFn: () => fetchPlayerDatas(id, season),
+  //   })
 
-  const playerInfos = data ? data.response : []
+  //   const playerInfos = data ? data.response : []
 
-  if (!playerInfos) {
-    return <Error />
-  }
+  //   if (!playerInfos) {
+  //     return <Error />
+  //   }
+
   return (
     <div className={styles.container}>
       <Link
@@ -47,8 +38,11 @@ export function Civility({ playerId, season }: any) {
         }
         className={styles.card}
       >
-        {playerInfos.map((infos: player) => (
-          <div className={styles.civilityContainer}>
+        {playerInfos.map((infos: PlayerProps, key: number) => (
+          <div
+            key={`${++key}-${infos.player.name}-civility`}
+            className={styles.civilityContainer}
+          >
             <h2>{infos.player.name}</h2>
             <div className={styles.imgContainer}>
               <img
@@ -76,7 +70,12 @@ export function Civility({ playerId, season }: any) {
             </div>
           </div>
         ))}
-        {playerInfos.length !== 0 ? <Statistics player={playerInfos} /> : ""}
+        {playerInfos.length !== 0 ? (
+          <Statistics statistics={playerInfos[0].statistics} />
+        ) : (
+          ""
+        )}
+        <Palmares player={playerInfos[0].player} />
       </Link>
     </div>
   )

@@ -4,26 +4,9 @@ import { useQuery } from "react-query"
 import styles from "./styles.module.css"
 import Link from "next/link"
 import { standing } from "@/utils/dataTest/standingAssists"
+import { rankingProps, RankingScorersProps } from "@/types/rankingType"
 
-type standingProps = {
-  competitionId: number
-  season: number
-  active: boolean
-}
-
-type player = {
-  player: {
-    id: number
-    name: string
-  }
-
-  statistics: {
-    goals: { assists: number; total: number }
-    games: { appearences: number }
-  }[]
-}
-
-const fetchTopScorers = async ({ season, competitionId }: any) => {
+const fetchTopScorers = async (season: number, competitionId: number) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/players/topscorers?season=${season}&league=${competitionId}`,
     requestOptions
@@ -36,10 +19,10 @@ export function StandingScorers({
   competitionId,
   season,
   active,
-}: standingProps) {
+}: rankingProps) {
   // const { data, isLoading, isError } = useQuery({
   //   queryKey: ["top Scorers", [competitionId, season]],
-  //   queryFn: () => fetchTopScorers({ competitionId, season }),
+  //   queryFn: () => fetchTopScorers(competitionId, season),
   // })
 
   // const standing = data ? data.response : []
@@ -64,7 +47,7 @@ export function StandingScorers({
           </tr>
         </thead>
         <tbody>
-          {standing.map((player: player, key: number) => (
+          {standing.map((player: RankingScorersProps, key: number) => (
             <Link href={`/player/${player.player.id}`} className={styles.link}>
               <tr>
                 <td>{++key}</td>

@@ -16,7 +16,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <div className={styles.linkContainer}>
+        <nav className={styles.linkContainer}>
           <Link href='/standings' className={styles.card}>
             <button className={`${styles.homeButton} ${styles.card}`}>
               Classement
@@ -28,7 +28,7 @@ export default function Home() {
           {/* <Link href=''>
             <button className={styles.homeButton}>Resultats</button>
           </Link> */}
-        </div>
+        </nav>
       </main>
     </>
   )

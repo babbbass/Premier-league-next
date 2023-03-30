@@ -5,11 +5,11 @@ import styles from "@/styles/Home.module.css"
 
 export default function Player() {
   const router = useRouter()
-  let { id } = router.query
+  const id = parseInt(router.query.id as string)
 
   return (
     <main className={styles.main}>
-      <Civility playerId={id} season={2022} />
+      <Civility id={id} season={2022} />
     </main>
   )
 }

@@ -1,10 +1,11 @@
 import React from "react"
-import { useQuery, QueryClient } from "react-query"
+import { useQuery } from "react-query"
 import styles from "./styles.module.css"
 import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import Link from "next/link"
 import { standingTeams as standings } from "@/utils/dataTest/standing"
-import { Error } from "@/components/error/error"
+// import { Error } from "@/components/error/error"
+import { rankingProps, RankingTeamProps } from "@/types/rankingType"
 
 const fetchTeamsStanding = async (competitionId: number, season: number) => {
   const response = await fetch(
@@ -15,32 +16,7 @@ const fetchTeamsStanding = async (competitionId: number, season: number) => {
   return await response.json()
 }
 
-type standingTeams = {
-  competitionId: number
-  season: number
-  active: boolean
-}
-
-type team = {
-  rank: number
-  points: number
-  all: {
-    played: number
-    win: number
-    draw: number
-    lose: number
-  }
-  team: {
-    id: number
-    name: string
-  }
-}
-
-export function StandingTeams({
-  competitionId,
-  season,
-  active,
-}: standingTeams) {
+export function StandingTeams({ competitionId, season, active }: rankingProps) {
   // const { isLoading, isError, data } = useQuery({
   //   queryKey: ["allTeams", competitionId, season],
   //   queryFn: () => fetchTeamsStanding(competitionId, season),
@@ -80,8 +56,12 @@ export function StandingTeams({
           </tr>
         </thead>
         <tbody>
-          {standings.map((team: team) => (
-            <Link href={`/team/${team.team.id}`} className={styles.link}>
+          {standings.map((team: RankingTeamProps, key: number) => (
+            <Link
+              key={`${team.team.id}-${key}`}
+              href={`/team/${team.team.id}`}
+              className={styles.link}
+            >
               <tr>
                 <td>{team.rank}</td>
                 <td>{team.team.name}</td>

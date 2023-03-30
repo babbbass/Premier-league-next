@@ -1,17 +1,17 @@
 import React from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import { TeamSquad } from "@/components/player/teamSquad"
+import { TeamSquad } from "@/components/team/teamSquad"
 import { useRouter } from "next/router"
 
 export default function Players() {
   const router = useRouter()
-  const { teamId } = router.query
+  const teamId = parseInt(router.query.teamId as string)
 
   return (
     <>
       <Head>
-        <title>Effectif - team</title>
+        <title>Effectif des équipes</title>
         <meta
           name='description'
           content='Infos et résultats sur la premier league anglaise'
@@ -20,7 +20,7 @@ export default function Players() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <TeamSquad teamId={teamId} />
+        <TeamSquad id={teamId} />
       </main>
     </>
   )

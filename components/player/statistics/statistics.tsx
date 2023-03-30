@@ -1,28 +1,21 @@
 import React from "react"
 import styles from "./styles.module.css"
-import { Palmares } from "@/components/player/palmares/palmares"
-// import { player } from "@/utils/dataTest/player"
+import {
+  PlayerStatisticsProps as PlayerStatictics,
+  Statistics,
+} from "@/types/PlayerStatisticsType"
 
-type player = [
-  player: {
-    id: number
-    name: string
-    nationality: string
-    age: number
-    weight: number
-    height: number
-    photo: string
-    season: number
-  }
-]
-export function Statistics({ player }: any) {
+export function Statistics({ statistics }: PlayerStatictics) {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.statistics}>
           <h2 className={styles.titleComponent}>Statistiques</h2>
-          {player[0].statistics.map((infos: any) => (
-            <div className={styles.competition}>
+          {statistics.map((infos: Statistics, key: number) => (
+            <div
+              key={`${++key}-${infos.league.name}-statistics`}
+              className={styles.competition}
+            >
               <h3>{infos.league.name}</h3>
               <div className={styles.name}>
                 Matchs: {infos.games.appearences}
@@ -35,7 +28,6 @@ export function Statistics({ player }: any) {
             </div>
           ))}
         </div>
-        <Palmares playerId={player[0].player.id} />
       </div>
     </>
   )

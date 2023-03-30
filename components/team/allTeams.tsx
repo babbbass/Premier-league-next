@@ -5,34 +5,10 @@ import { teams } from "@/utils/dataTest/teams"
 import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import styles from "./styles.module.css"
 import { Error } from "@/components/error/error"
+import { TeamsProps } from "@/types/TeamsProps"
+import { Team } from "@/types/TeamProps"
 
-type allTeamsParameters = {
-  competitionId: number
-}
-
-type team = {
-  team: {
-    code: string
-    country: string
-    founded: number
-    id: number
-    logo: string
-    name: string
-    national: boolean
-  }
-
-  venue: {
-    address: string
-    capacity: number
-    city: string
-    id: number
-    image: string
-    name: string
-    surface: string
-  }
-}
-
-const fetchCompetition = async (competitionId: number) => {
+const fetchCompetition = async (competitionId: TeamsProps["competitionId"]) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/teams?league=${competitionId}&season=2022`,
     requestOptions
@@ -40,7 +16,7 @@ const fetchCompetition = async (competitionId: number) => {
 
   return await response.json()
 }
-export function AllTeams({ competitionId }: allTeamsParameters) {
+export function AllTeams({ competitionId }: TeamsProps) {
   // const { isLoading, isError, data } = useQuery({
   //   queryKey: ["allTeams", competitionId],
   //   queryFn: () => fetchCompetition(competitionId),
@@ -48,13 +24,13 @@ export function AllTeams({ competitionId }: allTeamsParameters) {
 
   // const teams = data ? data.response : []
 
-  if (isError) {
-    return <Error message='Erreur Requete' />
-  }
+  // if (isError) {
+  //   return <Error message='Erreur Requete' />
+  // }
 
   return (
     <div className={styles.container}>
-      {teams.map((team: team) => (
+      {teams.map((team: Team) => (
         <Link
           href={`/team/${team.team.id}`}
           key={team.team.id}
