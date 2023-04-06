@@ -16,6 +16,7 @@
 
 .homeButton:hover, .button:hover {
   border-color: var(--color-hover-card);
+  color: var(--color-hover-card);
 }
 
 .button {
@@ -25,6 +26,7 @@
 
 .homeButton {
   height: 130px;
+  margin-bottom: 30px;
   aspect-ratio: 2/1;
 }
 
