@@ -57,21 +57,19 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
         </thead>
         <tbody>
           {standings.map((team: RankingTeamProps, key: number) => (
-            <Link
-              key={`${team.team.id}-${key}`}
-              href={`/team/${team.team.id}`}
-              className={styles.link}
-            >
-              <tr>
-                <td>{team.rank}</td>
-                <td>{team.team.name}</td>
-                <td>{team.all.played}</td>
-                <td>{team.all.win}</td>
-                <td>{team.all.draw}</td>
-                <td>{team.all.lose}</td>
-                <td>{team.points}</td>
-              </tr>
-            </Link>
+            <tr key={`${team.team.id}-${key}`}>
+              <td>{team.rank}</td>
+              <td>
+                <Link href={`/team/${team.team.id}`} className={styles.link}>
+                  {team.team.name}
+                </Link>
+              </td>
+              <td>{team.all.played}</td>
+              <td>{team.all.win}</td>
+              <td>{team.all.draw}</td>
+              <td>{team.all.lose}</td>
+              <td>{team.points}</td>
+            </tr>
           ))}
         </tbody>
       </table>

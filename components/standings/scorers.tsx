@@ -48,15 +48,27 @@ export function StandingScorers({
         </thead>
         <tbody>
           {standing.map((player: RankingScorersProps, key: number) => (
-            <Link href={`/player/${player.player.id}`} className={styles.link}>
-              <tr>
-                <td>{++key}</td>
-                <td>{player.player.name}</td>
-                <td>{player.statistics[0].games.appearences}</td>
-                <td>{player.statistics[0].goals.total}</td>
-                <td>{player.statistics[0].goals.assists}</td>
-              </tr>
-            </Link>
+            <tr key={++key}>
+              <td>
+                <Link
+                  href={`/player/${player.player.id}`}
+                  className={styles.link}
+                >
+                  {++key}
+                </Link>
+              </td>
+              <td>
+                <Link
+                  href={`/player/${player.player.id}`}
+                  className={styles.link}
+                >
+                  {player.player.name}
+                </Link>
+              </td>
+              <td>{player.statistics[0].games.appearences}</td>
+              <td>{player.statistics[0].goals.total}</td>
+              <td>{player.statistics[0].goals.assists}</td>
+            </tr>
           ))}
         </tbody>
       </table>

@@ -48,18 +48,20 @@ export function StandingAssists({
         </thead>
         <tbody>
           {standing.map((statsPlayer: RankingAssistsProps, key: number) => (
-            <Link
-              href={`/player/${statsPlayer.player.id}`}
-              className={styles.link}
-            >
-              <tr>
-                <td>{`${++key}`}</td>
-                <td>{statsPlayer.player.name}</td>
-                <td>{statsPlayer.statistics[0].games.appearences}</td>
-                <td>{statsPlayer.statistics[0].goals.assists}</td>
-                <td>{statsPlayer.statistics[0].goals.total}</td>
-              </tr>
-            </Link>
+            <tr key={`${++key}`}>
+              <td>{`${++key}`}</td>
+              <td>
+                <Link
+                  href={`/player/${statsPlayer.player.id}`}
+                  className={styles.link}
+                >
+                  {statsPlayer.player.name}
+                </Link>
+              </td>
+              <td>{statsPlayer.statistics[0].games.appearences}</td>
+              <td>{statsPlayer.statistics[0].goals.assists}</td>
+              <td>{statsPlayer.statistics[0].goals.total}</td>
+            </tr>
           ))}
         </tbody>
       </table>
