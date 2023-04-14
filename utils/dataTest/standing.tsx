@@ -7,10 +7,15 @@ export const standingTeams = [
       win: 54,
       draw: 54,
       lose: 54,
+      goals: {
+        for: 56,
+        against: 15,
+      },
     },
     team: {
       id: 33,
       name: "PSG",
+      logo: "https://media.api-sports.io/football/teams/33.png",
     },
   },
   {
@@ -21,10 +26,15 @@ export const standingTeams = [
       win: 23,
       draw: 54,
       lose: 54,
+      goals: {
+        for: 45,
+        against: 19,
+      },
     },
     team: {
-      id: 33,
+      id: 40,
       name: "Lens",
+      logo: "https://media.api-sports.io/football/teams/40.png",
     },
   },
 ]

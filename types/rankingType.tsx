@@ -9,6 +9,7 @@ export type RankingTeamProps = {
   team: {
     id: number
     name: string
+    logo: string
   }
   points: number
   all: {
@@ -16,6 +17,10 @@ export type RankingTeamProps = {
     win: number
     draw: number
     lose: number
+    goals: {
+      for: number
+      against: number
+    }
   }
 }
 

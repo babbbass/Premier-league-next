@@ -1,5 +1,4 @@
 .table {
-	/* background: green; */
 	min-width: 270px;
 	width: auto;
 	margin: auto;
@@ -35,6 +34,21 @@
 
 .notActive {
 	display: none;
+}
+
+.headerTeam {
+	padding-left: 8px;
+	text-align: left;
+}
+
+.teamCase {
+	padding: 5px 0;
+	padding-left: 8px;
+	text-align: left;
+}
+
+.logoTeam {
+	margin-right: 5px;
 }
 
 .titlePage {

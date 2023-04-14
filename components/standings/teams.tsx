@@ -6,6 +6,7 @@ import Link from "next/link"
 import { standingTeams as standings } from "@/utils/dataTest/standing"
 // import { Error } from "@/components/error/error"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
+import Image from "next/image"
 
 const fetchTeamsStanding = async (competitionId: number, season: number) => {
   const response = await fetch(
@@ -40,16 +41,10 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Pos</th>
-            <th>Club</th>
+            <th>#</th>
+            <th className={styles.headerTeam}>Equipe</th>
             <th>MJ</th>
-            <th>G</th>
-            <th>
-              <span>N</span>
-            </th>
-            <th>
-              <span>P</span>
-            </th>
+            <th>Buts</th>
             <th>
               <span>Pts</span>
             </th>
@@ -59,15 +54,23 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
           {standings.map((team: RankingTeamProps, key: number) => (
             <tr key={`${team.team.id}-${key}`}>
               <td>{team.rank}</td>
-              <td>
+              <td className={styles.teamCase}>
                 <Link href={`/team/${team.team.id}`} className={styles.link}>
+                  <Image
+                    //loader={myLoader}
+                    className={styles.logoTeam}
+                    src={team.team.logo}
+                    alt={`Logo - ${team.team.name}`}
+                    width={15}
+                    height={15}
+                  />
                   {team.team.name}
                 </Link>
               </td>
               <td>{team.all.played}</td>
-              <td>{team.all.win}</td>
-              <td>{team.all.draw}</td>
-              <td>{team.all.lose}</td>
+              <td>
+                {team.all.goals.for}:{team.all.goals.against}
+              </td>
               <td>{team.points}</td>
             </tr>
           ))}
