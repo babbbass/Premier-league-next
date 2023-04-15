@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 #configuration
-/utils/config.tsx
+#/utils/config.tsx
