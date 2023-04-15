@@ -1,9 +1,19 @@
 import React, { useState } from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import { StandingTeams } from "@/components/standings/teams"
-import { StandingAssists } from "@/components/standings/assists"
-import { StandingScorers } from "@/components/standings/scorers"
+import { StandingTeams, fetchTeamsStanding } from "@/components/standings/teams"
+import {
+  StandingAssists,
+  fetchTopAssists,
+} from "@/components/standings/assists"
+import {
+  StandingScorers,
+  fetchTopScorers,
+} from "@/components/standings/scorers"
+import { dehydrate, QueryClient } from "react-query"
+
+const competitionId = 39
+const season = 2022
 
 export default function Standings() {
   const [displayTeams, setDisplayTeams] = useState(true)
@@ -76,4 +86,25 @@ export default function Standings() {
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.fetchQuery(["standingTeams", [season, competitionId]], () =>
+    fetchTeamsStanding(season, competitionId)
+  )
+
+  await queryClient.fetchQuery(["topScorers", [season, competitionId]], () =>
+    fetchTopScorers(season, competitionId)
+  )
+
+  await queryClient.fetchQuery(["topAssits", [season, competitionId]], () =>
+    fetchTopAssists(season, competitionId)
+  )
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }

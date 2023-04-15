@@ -8,7 +8,10 @@ import { standingTeams as standings } from "@/utils/dataTest/standing"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
 import Image from "next/image"
 
-const fetchTeamsStanding = async (competitionId: number, season: number) => {
+export const fetchTeamsStanding = async (
+  season: number,
+  competitionId: number
+) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/standings?league=${competitionId}&season=${season}`,
     requestOptions
@@ -18,12 +21,12 @@ const fetchTeamsStanding = async (competitionId: number, season: number) => {
 }
 
 export function StandingTeams({ competitionId, season, active }: rankingProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["allTeams", competitionId, season],
-  //   queryFn: () => fetchTeamsStanding(competitionId, season),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["standingTeams", [season, competitionId]],
+    queryFn: () => fetchTeamsStanding(season, competitionId),
+  })
 
-  // const standings = data ? data.response[0]?.league.standings[0] : []
+  const standings = data ? data.response[0]?.league.standings[0] : []
 
   // if (!standings) {
   //   return (

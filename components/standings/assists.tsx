@@ -6,7 +6,10 @@ import Link from "next/link"
 import { standing } from "@/utils/dataTest/standingAssists"
 import { rankingProps, RankingAssistsProps } from "@/types/rankingType"
 
-const fetchTopAssists = async (season: number, competitionId: number) => {
+export const fetchTopAssists = async (
+  season: number,
+  competitionId: number
+) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/players/topassists?season=${season}&league=${competitionId}`,
     requestOptions
@@ -20,12 +23,12 @@ export function StandingAssists({
   season,
   active,
 }: rankingProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["top assits", [competitionId, season]],
-  //   queryFn: () => fetchTopAssists(season, competitionId),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["topAssits", [season, competitionId]],
+    queryFn: () => fetchTopAssists(season, competitionId),
+  })
 
-  // const standing = data ? data.response : []
+  const standing = data ? data.response : []
 
   return (
     <div className={active ? styles.active : styles.notActive}>
@@ -38,7 +41,7 @@ export function StandingAssists({
         <thead>
           <tr>
             <th>Pos</th>
-            <th>Club</th>
+            <th>Joueur</th>
             <th>MJ</th>
             <th>Passes</th>
             <th>
