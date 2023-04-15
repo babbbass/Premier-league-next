@@ -3,6 +3,7 @@ export const standing = [
     player: {
       id: 433,
       name: "M. Depay",
+      photo: "https://media.api-sports.io/football/players/278.png",
     },
     statistics: [
       {
@@ -20,6 +21,7 @@ export const standing = [
     player: {
       id: 955,
       name: "J. Bamba",
+      photo: "https://media.api-sports.io/football/players/955.png",
     },
     statistics: [
       {

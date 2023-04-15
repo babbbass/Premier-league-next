@@ -52,7 +52,6 @@
 }
 
 .titlePage {
-	
 	font-weight: bold;
 	font-style: italic;
 	text-transform: uppercase;
@@ -66,5 +65,11 @@
 @media(min-width: 600px) {
 	.table {
 		min-width: 400px;
+	}
+}
+
+@media(max-width: 600px) {
+	.titlePage {
+		font-size: 1.2rem;
 	}
 }

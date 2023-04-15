@@ -5,6 +5,7 @@ import styles from "./styles.module.css"
 import Link from "next/link"
 import { standing } from "@/utils/dataTest/standingAssists"
 import { rankingProps, RankingAssistsProps } from "@/types/rankingType"
+import Image from "next/image"
 
 export const fetchTopAssists = async (
   season: number,
@@ -23,12 +24,12 @@ export function StandingAssists({
   season,
   active,
 }: rankingProps) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["topAssits", [season, competitionId]],
-    queryFn: () => fetchTopAssists(season, competitionId),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["topAssits", [season, competitionId]],
+  //   queryFn: () => fetchTopAssists(season, competitionId),
+  // })
 
-  const standing = data ? data.response : []
+  // const standing = data ? data.response : []
 
   return (
     <div className={active ? styles.active : styles.notActive}>
@@ -58,6 +59,12 @@ export function StandingAssists({
                   href={`/player/${statsPlayer.player.id}`}
                   className={styles.link}
                 >
+                  <Image
+                    src={statsPlayer.player.photo}
+                    alt={`Image - ${statsPlayer.player.name}`}
+                    width={15}
+                    height={15}
+                  />
                   {statsPlayer.player.name}
                 </Link>
               </td>

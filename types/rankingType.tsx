@@ -28,6 +28,7 @@ export type RankingScorersProps = {
   player: {
     id: number
     name: string
+    photo: string
   }
   statistics: {
     games: { appearences: number }
@@ -39,6 +40,7 @@ export type RankingAssistsProps = {
   player: {
     id: number
     name: string
+    photo: string
   }
   statistics: {
     games: { appearences: number }

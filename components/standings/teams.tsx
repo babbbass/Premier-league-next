@@ -21,12 +21,12 @@ export const fetchTeamsStanding = async (
 }
 
 export function StandingTeams({ competitionId, season, active }: rankingProps) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["standingTeams", [season, competitionId]],
-    queryFn: () => fetchTeamsStanding(season, competitionId),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["standingTeams", [season, competitionId]],
+  //   queryFn: () => fetchTeamsStanding(season, competitionId),
+  // })
 
-  const standings = data ? data.response[0]?.league.standings[0] : []
+  // const standings = data ? data.response[0]?.league.standings[0] : []
 
   // if (!standings) {
   //   return (
@@ -60,7 +60,6 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
               <td className={styles.teamCase}>
                 <Link href={`/team/${team.team.id}`} className={styles.link}>
                   <Image
-                    //loader={myLoader}
                     className={styles.logoTeam}
                     src={team.team.logo}
                     alt={`Logo - ${team.team.name}`}
