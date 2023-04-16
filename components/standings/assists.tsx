@@ -60,6 +60,7 @@ export function StandingAssists({
                   className={styles.link}
                 >
                   <Image
+                    className={styles.logoTeam}
                     src={statsPlayer.player.photo}
                     alt={`Image - ${statsPlayer.player.name}`}
                     width={15}

@@ -4,10 +4,8 @@
   height: 100%; 
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   position: relative;
   overflow: hidden;
-  
 }
 
 .openCloseMenu {
@@ -23,7 +21,6 @@
 }
 
 .navigation {
-	/* position: relative; */
 	height: 100%;
 	width: 100%;
 }
@@ -101,6 +98,12 @@
   .menu li {
     color: var(--main-text-color);
   }
+
+  .openCloseMenu {
+    display: none;
+  }
+
+  .menu{transform: translate(0);}
 }
 
 @media (min-width: 800px) {
