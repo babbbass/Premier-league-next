@@ -8,7 +8,9 @@ import { Error } from "@/components/error/error"
 import { TeamsProps } from "@/types/TeamsProps"
 import { Team } from "@/types/TeamProps"
 
-const fetchCompetition = async (competitionId: TeamsProps["competitionId"]) => {
+export const fetchTeamsOfCompetition = async (
+  competitionId: TeamsProps["competitionId"]
+) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/teams?league=${competitionId}&season=2022`,
     requestOptions
@@ -19,7 +21,7 @@ const fetchCompetition = async (competitionId: TeamsProps["competitionId"]) => {
 export function AllTeams({ competitionId }: TeamsProps) {
   // const { isLoading, isError, data } = useQuery({
   //   queryKey: ["allTeams", competitionId],
-  //   queryFn: () => fetchCompetition(competitionId),
+  //   queryFn: () => fetchTeamsOfCompetition(competitionId),
   // })
 
   // const teams = data ? data.response : []

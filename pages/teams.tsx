@@ -1,7 +1,8 @@
 import React from "react"
 import Head from "next/head"
-import { AllTeams } from "@/components/team/allTeams"
+import { AllTeams, fetchTeamsOfCompetition } from "@/components/team/allTeams"
 import styles from "@/styles/Home.module.css"
+import { dehydrate, QueryClient } from "react-query"
 
 const COMPETITIONID = 39
 
@@ -22,4 +23,18 @@ export default function Teams() {
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.fetchQuery(["allTeams", COMPETITIONID], () =>
+    fetchTeamsOfCompetition(COMPETITIONID)
+  )
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }

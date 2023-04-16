@@ -25,6 +25,7 @@
 .teamName {
     height: 20%;
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .teamInfo {
