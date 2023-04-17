@@ -32,7 +32,7 @@
   transition: all 0.5s ease-in;
   position: absolute;
   height: 100%;
-	background-color: var(--main-text-color);
+	color: var(--main-text-color);
   z-index: 1;
   padding-top: 10px;
 }
@@ -40,7 +40,6 @@
 .menu li {
   margin: 10px;
   font-size: 1.2rem;
-  color: var(--background-site);
 }
 
 .menu li:last-child {
@@ -73,7 +72,6 @@
 
 .line1.active {
   transform: rotate(-135deg);
-  border-color: var(--background-site);
 }
 
 .active {
@@ -82,7 +80,6 @@
 
 .line3.active {
 	transform: rotate(135deg);
-  border-color: var(--background-site);
 }
 
 @media (min-width: 600px) {
