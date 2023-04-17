@@ -24,16 +24,14 @@ export function TeamSquad({ id }: Player) {
     queryFn: () => fetchTeamSquad(id),
   })
 
-  // if (isError) {
-  //   return <Error message='Erreur dans la requete' />
-  // }
+  if (!data.results) {
+    return (
+      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
   const squad = data ? data.response[0]?.players : []
   const team = data ? data.response[0]?.team : []
-
-  if (!squad) {
-    return <Error message='Nombre requete atteinte: 100 par Jour' />
-  }
 
   const goalkeepers = filterSquadByposition(squad, "goalkeeper")
   const defenders = filterSquadByposition(squad, "defender")

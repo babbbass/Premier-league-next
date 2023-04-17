@@ -6,6 +6,7 @@ import Link from "next/link"
 import { standing } from "@/utils/dataTest/standingAssists"
 import { rankingProps, RankingAssistsProps } from "@/types/rankingType"
 import Image from "next/image"
+import { Error } from "@/components/error/error"
 
 export const fetchTopAssists = async (
   season: number,
@@ -28,6 +29,12 @@ export function StandingAssists({
     queryKey: ["topAssits", [season, competitionId]],
     queryFn: () => fetchTopAssists(season, competitionId),
   })
+
+  if (!data.results) {
+    return (
+      <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
   const standing = data ? data.response : []
 

@@ -24,11 +24,13 @@ export function AllTeams({ competitionId }: TeamsProps) {
     queryFn: () => fetchTeamsOfCompetition(competitionId),
   })
 
-  const teams = data ? data.response : []
+  if (!data.results) {
+    return (
+      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
-  // if (isError) {
-  //   return <Error message='Erreur Requete' />
-  // }
+  const teams = data ? data.response : []
 
   return (
     <div className={styles.container}>

@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import Link from "next/link"
 import { standingTeams as standings } from "@/utils/dataTest/standing"
-// import { Error } from "@/components/error/error"
+import { Error } from "@/components/error/error"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
 import Image from "next/image"
 
@@ -26,13 +26,13 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
     queryFn: () => fetchTeamsStanding(season, competitionId),
   })
 
-  const standings = data ? data.response[0]?.league.standings[0] : []
+  if (!data.results) {
+    return (
+      <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
-  // if (!standings) {
-  //   return (
-  //     <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
-  //   )
-  // }
+  const standings = data ? data.response[0]?.league.standings[0] : []
 
   return (
     <div className={active ? styles.active : styles.notActive}>
