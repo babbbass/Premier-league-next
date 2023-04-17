@@ -9,7 +9,10 @@ import { player as playerInfos } from "@/utils/dataTest/player"
 import { PlayerProps } from "@/types/PlayerType"
 import { Palmares } from "@/components/player/palmares/palmares"
 
-const fetchPlayerDatas = async (playerId: number, season: number) => {
+export const fetchPlayerDatas = async (
+  playerId: number,
+  season: number | undefined
+) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/players?id=${playerId}&season=${season}`,
     requestOptions
@@ -19,12 +22,13 @@ const fetchPlayerDatas = async (playerId: number, season: number) => {
 }
 
 export function Civility({ id, season }: PlayerProps["player"]) {
-  //   const { isLoading, isError, data } = useQuery({
-  //     queryKey: ["fetch player", [id, season]],
-  //     queryFn: () => fetchPlayerDatas(id, season),
-  //   })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["fetchPlayer", [id, season]],
+    queryFn: () => fetchPlayerDatas(id, season),
+  })
 
-  //   const playerInfos = data ? data.response : []
+  const playerInfos = data ? data.response : []
+  console.log(playerInfos)
 
   //   if (!playerInfos) {
   //     return <Error />

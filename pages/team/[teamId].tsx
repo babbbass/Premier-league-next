@@ -1,9 +1,15 @@
 import React from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import { TeamSquad } from "@/components/team/teamSquad"
+import { TeamSquad, fetchTeamSquad } from "@/components/team/teamSquad"
 import { useRouter } from "next/router"
+import { QueryClient, dehydrate } from "react-query"
 
+type Context = {
+  params: {
+    teamId: string
+  }
+}
 export default function Players() {
   const router = useRouter()
   const teamId = parseInt(router.query.teamId as string)
@@ -24,4 +30,17 @@ export default function Players() {
       </main>
     </>
   )
+}
+
+export async function getServerSideProps(context: Context) {
+  const queryClient = new QueryClient()
+  const TEAMID = parseInt(context.params.teamId)
+  await queryClient.fetchQuery(["teamSquad", TEAMID], () =>
+    fetchTeamSquad(TEAMID)
+  )
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
 }

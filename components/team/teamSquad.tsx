@@ -9,7 +9,7 @@ import { playersForPosition, filterSquadByposition } from "@/utils/functions"
 
 type Player = PlayerProps["player"]
 
-const fetchTeamSquad = async (teamId: number) => {
+export const fetchTeamSquad = async (teamId: number) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/players/squads?team=${teamId}`,
     requestOptions
@@ -19,17 +19,17 @@ const fetchTeamSquad = async (teamId: number) => {
 }
 
 export function TeamSquad({ id }: Player) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["fetching team squad", id],
-  //   queryFn: () => fetchTeamSquad(id),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["teamSquad", id],
+    queryFn: () => fetchTeamSquad(id),
+  })
 
   // if (isError) {
   //   return <Error message='Erreur dans la requete' />
   // }
 
-  // const squad = data ? data.response[0]?.players : []
-  // const team = data ? data.response[0]?.team : []
+  const squad = data ? data.response[0]?.players : []
+  const team = data ? data.response[0]?.team : []
 
   if (!squad) {
     return <Error message='Nombre requete atteinte: 100 par Jour' />

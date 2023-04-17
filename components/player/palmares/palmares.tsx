@@ -6,7 +6,7 @@ import { trophies } from "@/utils/dataTest/trophies"
 import { PlayerProps } from "@/types/PlayerType"
 import { Trophies } from "@/types/PlayerTrophies"
 
-const fetchPlayerPalmares = async (playerId: number) => {
+export const fetchPlayerPalmares = async (playerId: number) => {
   const response = await fetch(
     `${BASE_FOOTBALL_URL}/trophies?player=${playerId}`,
     requestOptions
@@ -16,13 +16,12 @@ const fetchPlayerPalmares = async (playerId: number) => {
 }
 
 export function Palmares({ player }: PlayerProps) {
-  // const { data, isError, isLoading } = useQuery({
-  //   queryKey: ["Player Palmares", player.id],
-  //   queryFn: () => fetchPlayerPalmares(player.id),
-  //  refectchOnWindowFocus: false
-  // })
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["PlayerPalmares", player.id],
+    queryFn: () => fetchPlayerPalmares(player.id),
+  })
 
-  // const trophies = data ? data.response : []
+  const trophies = data ? data.response : []
   return (
     <div className={styles.palmares}>
       <h2 className={styles.titleComponent}>Palmares</h2>

@@ -19,12 +19,12 @@ export const fetchTeamsOfCompetition = async (
   return await response.json()
 }
 export function AllTeams({ competitionId }: TeamsProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["allTeams", competitionId],
-  //   queryFn: () => fetchTeamsOfCompetition(competitionId),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["allTeams", competitionId],
+    queryFn: () => fetchTeamsOfCompetition(competitionId),
+  })
 
-  // const teams = data ? data.response : []
+  const teams = data ? data.response : []
 
   // if (isError) {
   //   return <Error message='Erreur Requete' />
