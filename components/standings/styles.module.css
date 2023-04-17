@@ -1,11 +1,11 @@
 .table {
 	min-width: 270px;
-	width: auto;
+	width: 100%;
+	max-width: 400px;
 	margin: auto;
 	margin-top: 20px;
 	box-shadow: 0 5px 50px #000;
 	border-spacing:0 10px;
-	/* border: 1px solid var(--main-text-color); */
 }
 
 .table thead tr {
@@ -36,12 +36,12 @@
 	display: none;
 }
 
-.headerTeam {
+.headerTeam, .headerPlayer {
 	padding-left: 8px;
 	text-align: left;
 }
 
-.teamCase {
+.teamCase, .playerCase {
 	padding: 5px 0;
 	padding-left: 8px;
 	text-align: left;
@@ -65,6 +65,12 @@
 @media(min-width: 600px) {
 	.table {
 		min-width: 400px;
+	}
+}
+
+@media(min-width: 380px) {
+	.table {
+		min-width: 300px;
 	}
 }
 

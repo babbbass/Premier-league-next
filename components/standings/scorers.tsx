@@ -47,19 +47,19 @@ export function StandingScorers({
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Pos</th>
-            <th>Joueur</th>
+            <th>#</th>
+            <th className={styles.headerPlayer}>Joueur</th>
             <th>MJ</th>
-            <th>Buts</th>
+            <th>B</th>
             <th>
-              <span>Passes</span>
+              <span>P</span>
             </th>
           </tr>
         </thead>
         <tbody>
           {standing.map((player: RankingScorersProps, key: number) => (
             <tr key={++key}>
-              <td>
+              <td className={styles.playerCase}>
                 <Link
                   href={`/player/${player.player.id}`}
                   className={styles.link}
@@ -67,7 +67,7 @@ export function StandingScorers({
                   {++key}
                 </Link>
               </td>
-              <td>
+              <td className={styles.playerCase}>
                 <Link
                   href={`/player/${player.player.id}`}
                   className={styles.link}

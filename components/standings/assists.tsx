@@ -48,12 +48,12 @@ export function StandingAssists({
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Pos</th>
-            <th>Joueur</th>
+            <th>#</th>
+            <th className={styles.headerPlayer}>Joueur</th>
             <th>MJ</th>
-            <th>Passes</th>
+            <th>P</th>
             <th>
-              <span>Buts</span>
+              <span>B</span>
             </th>
           </tr>
         </thead>
@@ -61,7 +61,7 @@ export function StandingAssists({
           {standing.map((statsPlayer: RankingAssistsProps, key: number) => (
             <tr key={`${++key}`}>
               <td>{`${++key}`}</td>
-              <td>
+              <td className={styles.playerCase}>
                 <Link
                   href={`/player/${statsPlayer.player.id}`}
                   className={styles.link}

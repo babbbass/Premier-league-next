@@ -47,7 +47,7 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
             <th>#</th>
             <th className={styles.headerTeam}>Equipe</th>
             <th>MJ</th>
-            <th>Buts</th>
+            <th>B</th>
             <th>
               <span>Pts</span>
             </th>
