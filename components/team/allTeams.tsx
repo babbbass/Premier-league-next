@@ -46,6 +46,7 @@ export function AllTeams({ competitionId }: TeamsProps) {
               className={styles.teamImg}
               src={team.team.logo}
               alt={`${team.team.name}-logo`}
+              loading='lazy'
             />
           </div>
           <div className={styles.teamInfo}>

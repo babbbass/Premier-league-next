@@ -6,7 +6,6 @@ import Link from "next/link"
 import { standingTeams as standings } from "@/utils/dataTest/standing"
 import { Error } from "@/components/error/error"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
-import Image from "next/image"
 
 export const fetchTeamsStanding = async (
   season: number,
@@ -59,12 +58,11 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
               <td>{team.rank}</td>
               <td className={styles.teamCase}>
                 <Link href={`/team/${team.team.id}`} className={styles.link}>
-                  <Image
+                  <img
                     className={styles.logoTeam}
                     src={team.team.logo}
                     alt={`Logo - ${team.team.name}`}
-                    width={15}
-                    height={15}
+                    loading='lazy'
                   />
                   {team.team.name}
                 </Link>

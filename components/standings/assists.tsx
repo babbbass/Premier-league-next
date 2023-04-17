@@ -5,7 +5,6 @@ import styles from "./styles.module.css"
 import Link from "next/link"
 import { standing } from "@/utils/dataTest/standingAssists"
 import { rankingProps, RankingAssistsProps } from "@/types/rankingType"
-import Image from "next/image"
 import { Error } from "@/components/error/error"
 
 export const fetchTopAssists = async (
@@ -66,12 +65,11 @@ export function StandingAssists({
                   href={`/player/${statsPlayer.player.id}`}
                   className={styles.link}
                 >
-                  <Image
-                    className={styles.logoTeam}
+                  <img
+                    className={styles.imgPlayer}
                     src={statsPlayer.player.photo}
-                    alt={`Image - ${statsPlayer.player.name}`}
-                    width={15}
-                    height={15}
+                    alt={`Logo - ${statsPlayer.player.name}`}
+                    loading='lazy'
                   />
                   {statsPlayer.player.name}
                 </Link>

@@ -59,7 +59,7 @@ export function StandingScorers({
         <tbody>
           {standing.map((player: RankingScorersProps, key: number) => (
             <tr key={++key}>
-              <td className={styles.playerCase}>
+              <td>
                 <Link
                   href={`/player/${player.player.id}`}
                   className={styles.link}
@@ -72,12 +72,11 @@ export function StandingScorers({
                   href={`/player/${player.player.id}`}
                   className={styles.link}
                 >
-                  <Image
-                    className={styles.logoTeam}
+                  <img
+                    className={styles.imgPlayer}
                     src={player.player.photo}
-                    alt={`Image - ${player.player.name}`}
-                    width={15}
-                    height={15}
+                    alt={`Logo - ${player.player.name}`}
+                    loading='lazy'
                   />
                   {player.player.name}
                 </Link>

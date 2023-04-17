@@ -45,10 +45,17 @@
 	padding: 5px 0;
 	padding-left: 8px;
 	text-align: left;
+	display: flex;
+	align-items: center;
 }
 
-.logoTeam {
+.logoTeam, .imgPlayer {
 	margin-right: 5px;
+	width: 10%;
+}
+
+.imgPlayer {
+	background: var(--color-hover-card);
 }
 
 .titlePage {
@@ -62,12 +69,6 @@
 	color: var(--color-hover-card);
 }
 
-@media(min-width: 600px) {
-	.table {
-		min-width: 400px;
-	}
-}
-
 @media(min-width: 380px) {
 	.table {
 		min-width: 300px;
@@ -77,5 +78,17 @@
 @media(max-width: 600px) {
 	.titlePage {
 		font-size: 1.2rem;
+	}
+}
+
+@media(min-width: 600px) {
+	.table {
+		min-width: 550px;
+		font-size: 1.2rem;
+	}
+
+	.logoTeam {
+		margin-right: 5px;
+		height: 8%;
 	}
 }
