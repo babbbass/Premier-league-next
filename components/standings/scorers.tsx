@@ -24,12 +24,12 @@ export function StandingScorers({
   season,
   active,
 }: rankingProps) {
-  // const { data, isLoading, isError } = useQuery({
-  //   queryKey: ["topScorers", [season, competitionId]],
-  //   queryFn: () => fetchTopScorers(season, competitionId),
-  // })
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["topScorers", [season, competitionId]],
+    queryFn: () => fetchTopScorers(season, competitionId),
+  })
 
-  // const standing = data ? data.response : []
+  const standing = data ? data.response : []
 
   return (
     <div className={active ? styles.active : styles.notActive}>

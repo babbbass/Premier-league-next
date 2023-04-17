@@ -24,12 +24,12 @@ export function StandingAssists({
   season,
   active,
 }: rankingProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["topAssits", [season, competitionId]],
-  //   queryFn: () => fetchTopAssists(season, competitionId),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["topAssits", [season, competitionId]],
+    queryFn: () => fetchTopAssists(season, competitionId),
+  })
 
-  // const standing = data ? data.response : []
+  const standing = data ? data.response : []
 
   return (
     <div className={active ? styles.active : styles.notActive}>
