@@ -5,15 +5,12 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* --background-site: #D6DBDC; */
-  --background-site: #060D2E;
-  --main-text-color: #f5f5f5;
-  --background-card-color: #151E52;
-  --background-button-color: #151E52;
+  --background-site: #eee;
+  --main-text-color: #000;
+  --background-card-color: #fff;
+  --background-button-color: #f5f5f5;
 
-  /* --color-hover-card: #CE1124; */
   --color-hover-card: #28f1fe;
-  /* --main-text-color: #000; */
 }
 
 @media (prefers-color-scheme: dark) {

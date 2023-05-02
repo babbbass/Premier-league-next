@@ -6,6 +6,7 @@ import styles from "./squad.module.css"
 import { Error } from "@/components/error/error"
 import { PlayerProps } from "@/types/PlayerType"
 import { playersForPosition, filterSquadByposition } from "@/utils/functions"
+import { HeaderTeam } from "@/components/team/headerTeam"
 
 type Player = PlayerProps["player"]
 
@@ -40,7 +41,7 @@ export function TeamSquad({ id }: Player) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.teamName}>EFFECTIF - {team.name}</h2>
+      <HeaderTeam team={team} />
       <h3 className={styles.positions}>Gardiens</h3>
       {playersForPosition(goalkeepers)}
       <h3 className={styles.positions}>Défenseurs</h3>

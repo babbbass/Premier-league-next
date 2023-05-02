@@ -18,7 +18,6 @@ export function playersForPosition(position: PlayerArray) {
       </div>
       <div className={styles.info}>
         <div>N° {player.number}</div>
-        <div>{player.position}</div>
         <div>{player.age} ans</div>
       </div>
     </Link>

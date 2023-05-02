@@ -23,17 +23,13 @@
     border: 2px solid var(--color-hover-card);
 }
 
-.teamName, .positions {
+.positions {
     width: 100%;
     margin: 10px;
 }
 
 .info {
     height: 20%;
-}
-
-.teamName {
-    font-size: 1.8rem;
 }
 
 .name {

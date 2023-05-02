@@ -1,0 +1,21 @@
+.headerTeam {
+  display: flex;
+  margin: 0 20px 20px;
+  width: 100%;
+}
+
+.teamLogo {
+  width: 33%;
+  background-color: var(--background-card-color);
+}
+
+.teamName {
+	font-size: 1.8rem;
+	margin: 10px;
+}
+
+@media (min-width: 600px) {
+  .teamLogo {
+    width: 12%;
+  }
+}
