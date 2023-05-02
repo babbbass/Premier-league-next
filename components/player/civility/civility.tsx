@@ -37,42 +37,54 @@ export function Civility({ id, season }: PlayerProps["player"]) {
 
   return (
     <div className={styles.container}>
-      <Link
-        href={
-          playerInfos[0] ? `/team/${playerInfos[0].statistics[0].team.id}` : ""
-        }
-        className={styles.card}
-      >
+      <div className={styles.card}>
         {playerInfos.map((infos: PlayerProps, key: number) => (
           <div
             key={`${++key}-${infos.player.name}-civility`}
             className={styles.civilityContainer}
           >
-            <h2>{infos.player.name}</h2>
-            <div className={styles.imgContainer}>
+            <div className={styles.player}>
+              <div className={styles.imgContainer}>
+                <div className={styles.country}>{infos.player.nationality}</div>
+                <img
+                  src={infos.player.photo}
+                  alt={`${infos.player.name}-photo`}
+                />
+                <h2>{infos.player.name}</h2>
+              </div>
+              <div className={styles.civility}>
+                <div className={styles.name}>
+                  <span className={styles.age}>Age:</span>
+                  {infos.player.age}
+                </div>
+                <div className={styles.height}>
+                  <span className={styles.nameValue}>Taille: </span>
+                  {infos.player.height}
+                </div>
+
+                <div className={styles.weight}>
+                  <span className={styles.nameValue}>Poids: </span>
+                  {infos.player.weight}
+                </div>
+              </div>
+            </div>
+            <Link
+              className={styles.team}
+              href={
+                playerInfos[0]
+                  ? `/team/${playerInfos[0].statistics[0].team.id}`
+                  : ""
+              }
+            >
               <img
-                src={infos.player.photo}
-                alt={`${infos.player.name}-photo`}
+                src={infos.statistics[0].team.logo}
+                alt={`${infos.statistics[0].team.name}-logo`}
               />
-            </div>
-            <div className={styles.civility}>
-              <div className={styles.name}>
-                <span className={styles.nameValue}>Age:</span>
-                {infos.player.age}
+              {/* </Link> */}
+              <div className={styles.teamName}>
+                {infos.statistics[0].team.name}
               </div>
-              <div className={styles.name}>
-                <span className={styles.nameValue}>Taille: </span>
-                {infos.player.height}
-              </div>
-              <div className={styles.name}>
-                <span className={styles.nameValue}>Pays: </span>
-                {infos.player.nationality}
-              </div>
-              <div className={styles.name}>
-                <span className={styles.nameValue}>Poids: </span>
-                {infos.player.weight}
-              </div>
-            </div>
+            </Link>
           </div>
         ))}
         {playerInfos.length !== 0 ? (
@@ -81,7 +93,7 @@ export function Civility({ id, season }: PlayerProps["player"]) {
           ""
         )}
         <Palmares player={playerInfos[0].player} />
-      </Link>
+      </div>
     </div>
   )
 }

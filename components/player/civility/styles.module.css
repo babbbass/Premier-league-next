@@ -1,58 +1,63 @@
 .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.container h2{
-    margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .civilityContainer {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-bottom: 15px;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+	justify-content: space-between;
+}
+
+.player, .team {
+	display: flex;
+	align-items: center;
 }
 
 .card {
-    width: 100%;
-    padding: 20px 0;
-    min-height: 20vh;
-    overflow: hidden;
-    border: 2px solid var(--background-card-color);
-    border-radius: 6px;
-    background: var(--background-card-color);
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
+	width: 100%;
+	padding: 20px 20px;
+	min-height: 20vh;
+	overflow: hidden;
+	border: 2px solid var(--background-card-color);
+	border-radius: 6px;
+	background: var(--background-card-color);
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-style: italic;
 }
 
-.card:hover {
-    border-color: var(--color-hover-card);
+.team:hover {
+  border-color: var(--color-hover-card);
 }
 
 .civility{
-    padding-top: 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    /* background-color: black; */
+	padding-top: 10px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
 
-.name {
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.name,.height, .weight {
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.country {
+	font-weight: 400;
+	font-style: italic;
+	margin-bottom: 10px;
 }
 
 .nameValue {
@@ -61,17 +66,55 @@
 }
 
 .imgContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 30px 10px 0;
 }
 
-.imgContainer {
-    display: flex;
-    align-items: center;
+.imgContainer h2{
+	margin-top: 20px;
 }
 
 .playerImg {
-    width: 100%;
+  width: 100%;
+}
+
+.teamName {
+	display: none;
+}
+
+@media (max-width: 600px) {
+	.civilityContainer {
+		flex-direction: column;
+	}
+
+	.civilityContainer img {
+		width: 80%;
+	}
+
+	.team img {
+		width: 25%;
+	}
+
+	.team {
+		margin-top: 20px;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.teamName {
+		display: block;
+	}
+
+	.player h2 {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 374px) {
+	.height, .weight {
+		display: none;
+	}
 }

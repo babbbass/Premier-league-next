@@ -11,13 +11,4 @@ export type PlayerProps = {
     height?: string
     season?: number
   }
-  statistics: statisticPlayer[]
-}
-
-type statisticPlayer = {
-  team: {
-    id: number
-    name: string
-    logo: string
-  }
 }

@@ -3,7 +3,7 @@ import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import { useQuery } from "react-query"
 import styles from "./styles.module.css"
 import { trophies } from "@/utils/dataTest/trophies"
-import { PlayerProps } from "@/types/PlayerType"
+import { PlayerProps } from "@/types/PlayerPalmares"
 import { Trophies } from "@/types/PlayerTrophies"
 
 export const fetchPlayerPalmares = async (playerId: number) => {
