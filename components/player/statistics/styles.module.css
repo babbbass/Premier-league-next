@@ -9,7 +9,7 @@
 
 .titleComponent{
     width: 100%;
-    color: var(--color-hover-card);
+    color: var(--main-text-color);
 }
 
 .statistics {

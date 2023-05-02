@@ -10,7 +10,7 @@
   --background-card-color: #fff;
   --background-button-color: #f5f5f5;
 
-  --color-hover-card: #28f1fe;
+  --color-hover-card: #bbbbbb;
 }
 
 @media (prefers-color-scheme: dark) {

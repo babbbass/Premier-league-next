@@ -8,7 +8,6 @@ type PlayerArray = Player[]
 export function playersForPosition(position: PlayerArray) {
   return position.map((player) => (
     <Link href={`/player/${player.id}`} className={styles.card} key={player.id}>
-      <div className={styles.name}>{player.name}</div>
       <div className={styles.imgContainer}>
         <img
           className={styles.playerImg}
@@ -16,9 +15,10 @@ export function playersForPosition(position: PlayerArray) {
           alt={`${player.name}-photo`}
         />
       </div>
+      <div className={styles.name}>{player.name}</div>
       <div className={styles.info}>
-        <div>N° {player.number}</div>
-        <div>{player.age} ans</div>
+        <div className={styles.age}>{player.age} ans</div>
+        <div>N°{player.number}</div>
       </div>
     </Link>
   ))
