@@ -9,7 +9,7 @@
 }
 
 .table thead tr {
-	background: var(--main-text-color);
+	background: var(--background-site);
 	color: #000;
 }
 
@@ -60,13 +60,14 @@
 
 .titlePage {
 	font-weight: bold;
-	font-style: italic;
 	text-transform: uppercase;
+	margin-bottom: 40px;
 }
 
 
 .titlePage span {
-	color: var(--color-hover-card);
+	font-weight: 400;
+	font-style: italic;
 }
 
 @media(min-width: 380px) {
