@@ -9,6 +9,13 @@
 .palmares h2 {
     width: 100%;
     color: var(--main-text-color);
+		margin: 15px auto;
+}
+
+.titleComponent{
+	width: 100%;
+	color: var(--main-text-color);
+	margin-bottom: 20px;
 }
 
 .card {
@@ -28,9 +35,10 @@
 }
 
 .competition h3 {
-    /* text-decoration: underline; */
     height: 23%;
-    /* color: var(--background-card-color); */
+		font-weight: 400;
+		text-decoration: underline;
+		font-style: italic;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -43,7 +51,6 @@
 .competition {
     width: 47%;
     height: 20vh;
-    /* border: 1px solid var(--main-text-color); */
     background: var(--background-card-color);
     margin-top: 5px;
     display: flex;

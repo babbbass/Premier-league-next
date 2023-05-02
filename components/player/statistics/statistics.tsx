@@ -11,22 +11,33 @@ export function Statistics({ statistics }: PlayerStatictics) {
       <div className={styles.container}>
         <div className={styles.statistics}>
           <h2 className={styles.titleComponent}>Statistiques</h2>
-          {statistics.map((infos: Statistics, key: number) => (
-            <div
-              key={`${++key}-${infos.league.name}-statistics`}
-              className={styles.competition}
-            >
-              <h3>{infos.league.name}</h3>
-              <div className={styles.name}>
-                Matchs: {infos.games.appearences}
-              </div>
-              <div className={styles.name}>Buts: {infos.goals.total}</div>
-              <div className={styles.name}>
-                Passes: {infos.goals.assists ? infos.goals.assists : 0}
-              </div>
-              <div className={styles.name}>{infos.team.name}</div>
-            </div>
-          ))}
+          <table className={styles.tableStats}>
+            <thead>
+              <tr>
+                <th></th>
+                <th>M</th>
+                <th>B</th>
+                <th>P</th>
+              </tr>
+            </thead>
+            <tbody>
+              {statistics.map((infos: Statistics, key: number) => (
+                <tr
+                  key={`${++key}-${infos.league.name}-statistics`}
+                  className={styles.rowCompetition}
+                >
+                  <td className={styles.leagueName}>
+                    <img src={infos.league.logo} />
+                    {infos.league.name}
+                  </td>
+                  <td>{infos.games.appearences}</td>
+                  <td>{infos.goals.total}</td>
+                  <td>{infos.goals.assists ? infos.goals.assists : 0}</td>
+                  {/* <img className={styles.name} src={infos.team.logo} /> */}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ export type PlayerStatisticsProps = {
 
 export type Statistics = {
   games: { appearences: number }
-  league: { name: string }
-  team: { id: number; name: string }
+  league: { name: string; logo: string }
+  team: { id: number; name: string; logo: string }
   goals: { total: number; assists: number }
 }
