@@ -39,17 +39,11 @@ export function StandingAssists({
 
   return (
     <div className={active ? styles.active : styles.notActive}>
-      <h2 className={styles.titlePage}>
-        Classement
-        <br />-<br />
-        <span>Passeurs</span>
-      </h2>
       <table className={styles.table}>
         <thead>
           <tr>
             <th>#</th>
             <th className={styles.headerPlayer}>Joueur</th>
-            <th>MJ</th>
             <th>P</th>
             <th>
               <span>B</span>
@@ -74,8 +68,9 @@ export function StandingAssists({
                   {statsPlayer.player.name}
                 </Link>
               </td>
-              <td>{statsPlayer.statistics[0].games.appearences}</td>
-              <td>{statsPlayer.statistics[0].goals.assists}</td>
+              <td className={styles.goalsAssists}>
+                {statsPlayer.statistics[0].goals.assists}
+              </td>
               <td>{statsPlayer.statistics[0].goals.total}</td>
             </tr>
           ))}

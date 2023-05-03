@@ -32,6 +32,7 @@ export default function Standings() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
+        <h2 className={styles.titlePage}>Classement</h2>
         <div className={styles.standingButtonsContainer}>
           <button
             className={`${styles.button} ${displayTeams ? styles.active : ""}`}

@@ -35,11 +35,6 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
 
   return (
     <div className={active ? styles.active : styles.notActive}>
-      <h2 className={styles.titlePage}>
-        Classement
-        <br />-<br />
-        <span>Equipes</span>
-      </h2>
       <table className={styles.table}>
         <thead>
           <tr>

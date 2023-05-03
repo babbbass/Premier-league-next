@@ -7,6 +7,12 @@
   flex-grow: 1;
 }
 
+.titlePage {
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
 .linkContainer {
   display: flex;
   flex-direction: column;
@@ -45,7 +51,7 @@
 }
 
 .standingButtonsContainer {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 @media (min-width: 600px) {
