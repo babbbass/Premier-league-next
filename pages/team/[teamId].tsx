@@ -2,7 +2,7 @@ import React from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
 import { TeamSquad } from "@/components/team/teamSquad"
-import { fetchTeamSquad } from "@/queries/team"
+import { fetchTeamSquad, fetchTeamStatistics } from "@/queries/team"
 import { useRouter } from "next/router"
 import { QueryClient, dehydrate } from "react-query"
 
@@ -11,6 +11,7 @@ type Context = {
     teamId: string
   }
 }
+
 export default function Players() {
   const router = useRouter()
   const teamId = parseInt(router.query.teamId as string)
@@ -36,8 +37,12 @@ export default function Players() {
 export async function getServerSideProps(context: Context) {
   const queryClient = new QueryClient()
   const TEAMID = parseInt(context.params.teamId)
+
   await queryClient.fetchQuery(["teamSquad", TEAMID], () =>
     fetchTeamSquad(TEAMID)
+  )
+  await queryClient.prefetchQuery(["teamStatistics", TEAMID], () =>
+    fetchTeamStatistics(TEAMID)
   )
   return {
     props: {

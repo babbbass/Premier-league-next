@@ -10,8 +10,33 @@
 }
 
 .teamName {
-	font-size: 1.8rem;
-	margin: 10px;
+	font-size: 1.5rem;
+  margin-bottom: 8px;
+	display: block;
+}
+
+.teamDatasContainer {
+  padding: 5px 0 0 15px;
+  text-align: left;
+}
+
+.icon {
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.W, .L, .D{
+  padding: 6px;
+  border-radius: 100%;
+  background-color: var(--color-win);
+}
+
+.L {
+  background-color: var(--color-lost);
+}
+
+.D {
+  background-color: var(--color-draw);
 }
 
 @media (min-width: 433px) {
@@ -22,5 +47,8 @@
 @media (min-width: 600px) {
   .teamLogo {
     width: 12%;
+  }
+  .teamName {
+    font-size: 1.5rem;
   }
 }

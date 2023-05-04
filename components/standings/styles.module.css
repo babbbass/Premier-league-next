@@ -71,8 +71,8 @@
 	font-style: italic;
 }
 
-.goalsAssists {
-	width: 50px;
+.goalsAssists, .goals {
+	min-width: 50px;
 }
 
 @media(min-width: 380px) {

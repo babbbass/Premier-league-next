@@ -31,9 +31,7 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
           <th className={styles.headerTeam}>Equipe</th>
           <th>MJ</th>
           <th>B</th>
-          <th>
-            <span>Pts</span>
-          </th>
+          <th>Pts</th>
         </tr>
       </thead>
       <tbody>
@@ -52,7 +50,7 @@ export function StandingTeams({ competitionId, season, active }: rankingProps) {
               </Link>
             </td>
             <td>{team.all.played}</td>
-            <td>
+            <td className={styles.goals}>
               {team.all.goals.for}:{team.all.goals.against}
             </td>
             <td>{team.points}</td>
