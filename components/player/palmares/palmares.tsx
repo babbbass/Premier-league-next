@@ -1,19 +1,10 @@
 import React from "react"
-import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import { useQuery } from "react-query"
 import styles from "./styles.module.css"
-import { trophies } from "@/utils/dataTest/trophies"
+// import { trophies } from "@/utils/dataTest/trophies"
 import { PlayerProps } from "@/types/PlayerPalmares"
 import { Trophies } from "@/types/PlayerTrophies"
-
-export const fetchPlayerPalmares = async (playerId: number) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/trophies?player=${playerId}`,
-    requestOptions
-  )
-
-  return await response.json()
-}
+import { fetchPlayerPalmares } from "@/queries/player"
 
 export function Palmares({ player }: PlayerProps) {
   const { data, isError, isLoading } = useQuery({

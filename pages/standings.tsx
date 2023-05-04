@@ -1,19 +1,16 @@
 import React, { useState } from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import { StandingTeams, fetchTeamsStanding } from "@/components/standings/teams"
+import { StandingTeams } from "@/components/standings/teams"
 import {
-  StandingAssists,
+  fetchTeamsStanding,
   fetchTopAssists,
-} from "@/components/standings/assists"
-import {
-  StandingScorers,
   fetchTopScorers,
-} from "@/components/standings/scorers"
+} from "@/queries/standing"
+import { StandingAssists } from "@/components/standings/assists"
+import { StandingScorers } from "@/components/standings/scorers"
+import { SEASON, COMPETITION_ID } from "@/utils/config"
 import { dehydrate, QueryClient } from "react-query"
-
-const COMPETITION_ID = 39
-const SEASON = 2022
 
 export default function Standings() {
   const [displayTeams, setDisplayTeams] = useState(true)
@@ -70,18 +67,18 @@ export default function Standings() {
           </button>
         </div>
         <StandingTeams
-          competitionId={39}
-          season={2022}
+          competitionId={COMPETITION_ID}
+          season={SEASON}
           active={displayTeams}
         ></StandingTeams>
         <StandingScorers
-          competitionId={39}
-          season={2022}
+          competitionId={COMPETITION_ID}
+          season={SEASON}
           active={displayScorers}
         ></StandingScorers>
         <StandingAssists
-          competitionId={39}
-          season={2022}
+          competitionId={COMPETITION_ID}
+          season={SEASON}
           active={displayAssiters}
         ></StandingAssists>
       </main>

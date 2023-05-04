@@ -1,6 +1,15 @@
+.active {
+	margin: 10px;
+	width: 100%;
+}
+
+.notActive {
+	display: none;
+}
+
 .table {
 	min-width: 270px;
-	/* max-width: 400px; */
+	width: 100%;
 	margin: auto;
 	border-spacing: 0 0;
 	background-color: #fff;
@@ -25,16 +34,6 @@
 	text-decoration: underline;
 	color: var(--color-hover-card);
 	font-weight: bold;
-}
-
-.active {
-	margin: 10px;
-	display: block;
-	width: 100%;
-}
-
-.notActive {
-	display: none;
 }
 
 .headerTeam, .headerPlayer {

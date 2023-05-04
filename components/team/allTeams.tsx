@@ -1,23 +1,13 @@
 import React from "react"
-import { useQuery, QueryClient } from "react-query"
+import { useQuery } from "react-query"
 import Link from "next/link"
-import { teams } from "@/utils/dataTest/teams"
-import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
+// import { teams } from "@/utils/dataTest/teams"
 import styles from "./styles.module.css"
 import { Error } from "@/components/error/error"
 import { TeamsProps } from "@/types/TeamsProps"
 import { Team } from "@/types/TeamProps"
+import { fetchTeamsOfCompetition } from "@/queries/team"
 
-export const fetchTeamsOfCompetition = async (
-  competitionId: TeamsProps["competitionId"]
-) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/teams?league=${competitionId}&season=2022`,
-    requestOptions
-  )
-
-  return await response.json()
-}
 export function AllTeams({ competitionId }: TeamsProps) {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["allTeams", competitionId],
@@ -50,8 +40,8 @@ export function AllTeams({ competitionId }: TeamsProps) {
             />
           </div>
           <div className={styles.teamInfo}>
-            <div>Fondé en: {team.team.founded}</div>
-            <div>{team.venue.name}</div>
+            {/* <div>{team.team.founded}</div> */}
+            {/* <div>{team.venue.name}</div> */}
             <div>{team.venue.city}</div>
           </div>
         </Link>

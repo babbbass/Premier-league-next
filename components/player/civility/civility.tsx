@@ -8,18 +8,7 @@ import { Error } from "@/components/error/error"
 import { player as playerInfos } from "@/utils/dataTest/player"
 import { PlayerProps } from "@/types/PlayerType"
 import { Palmares } from "@/components/player/palmares/palmares"
-
-export const fetchPlayerDatas = async (
-  playerId: number,
-  season: number | undefined
-) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/players?id=${playerId}&season=${season}`,
-    requestOptions
-  )
-
-  return await response.json()
-}
+import { fetchPlayerDatas } from "@/queries/player"
 
 export function Civility({ id, season }: PlayerProps["player"]) {
   const { isLoading, isError, data } = useQuery({

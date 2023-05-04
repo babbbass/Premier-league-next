@@ -1,23 +1,14 @@
 import React from "react"
-import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import { useQuery } from "react-query"
-import { squad, team } from "@/utils/dataTest/squad"
+// import { squad, team } from "@/utils/dataTest/squad"
 import styles from "./squad.module.css"
 import { Error } from "@/components/error/error"
 import { PlayerProps } from "@/types/PlayerType"
 import { playersForPosition, filterSquadByposition } from "@/utils/functions"
 import { HeaderTeam } from "@/components/team/headerTeam"
+import { fetchTeamSquad } from "@/queries/team"
 
 type Player = PlayerProps["player"]
-
-export const fetchTeamSquad = async (teamId: number) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/players/squads?team=${teamId}`,
-    requestOptions
-  )
-
-  return await response.json()
-}
 
 export function TeamSquad({ id }: Player) {
   const { isLoading, isError, data } = useQuery({

@@ -1,12 +1,10 @@
 import React from "react"
 import { useRouter } from "next/router"
-import {
-  Civility,
-  fetchPlayerDatas,
-} from "@/components/player/civility/civility"
-import { fetchPlayerPalmares } from "@/components/player/palmares/palmares"
+import { Civility } from "@/components/player/civility/civility"
 import styles from "@/styles/Home.module.css"
+import { fetchPlayerDatas, fetchPlayerPalmares } from "@/queries/player"
 import { QueryClient, dehydrate } from "react-query"
+import { SEASON } from "@/utils/config"
 
 type Context = {
   params: {
@@ -14,7 +12,6 @@ type Context = {
   }
 }
 
-const SEASON = 2022
 export default function Player() {
   const router = useRouter()
   const id = parseInt(router.query.id as string)

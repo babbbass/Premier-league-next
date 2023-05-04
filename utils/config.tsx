@@ -10,3 +10,6 @@ export const requestOptions: RequestInit = {
 }
 
 export const BASE_FOOTBALL_URL = `https://v3.football.api-sports.io`
+
+export const COMPETITION_ID = 39
+export const SEASON = 2022

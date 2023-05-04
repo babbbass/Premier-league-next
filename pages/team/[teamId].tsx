@@ -1,7 +1,8 @@
 import React from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import { TeamSquad, fetchTeamSquad } from "@/components/team/teamSquad"
+import { TeamSquad } from "@/components/team/teamSquad"
+import { fetchTeamSquad } from "@/queries/team"
 import { useRouter } from "next/router"
 import { QueryClient, dehydrate } from "react-query"
 
