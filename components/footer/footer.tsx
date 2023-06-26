@@ -1,9 +1,8 @@
 import React from "react"
-import styles from "./styles.module.css"
 
 export function Footer() {
   return (
-    <footer className={styles.container}>
+    <footer className='flex justify-evenly items-center mt-10'>
       <div>@babbbass 2023</div>
     </footer>
   )

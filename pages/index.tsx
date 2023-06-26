@@ -25,9 +25,9 @@ export default function Home() {
           <Link href='/teams'>
             <button className={styles.homeButton}>Equipes</button>
           </Link>
-          {/* <Link href=''>
+          <Link href='/results'>
             <button className={styles.homeButton}>Resultats</button>
-          </Link> */}
+          </Link>
         </nav>
       </main>
     </>
