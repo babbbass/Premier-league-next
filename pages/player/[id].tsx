@@ -23,20 +23,20 @@ export default function Player() {
   )
 }
 
-export async function getServerSideProps(context: Context) {
-  const queryClient = new QueryClient()
-  const PLAYER_ID = parseInt(context.params.id)
-  await queryClient.fetchQuery(["fetchPlayer", [PLAYER_ID, SEASON]], () =>
-    fetchPlayerDatas(PLAYER_ID, SEASON)
-  )
+// export async function getServerSideProps(context: Context) {
+//   const queryClient = new QueryClient()
+//   const PLAYER_ID = parseInt(context.params.id)
+//   await queryClient.fetchQuery(["fetchPlayer", [PLAYER_ID, SEASON]], () =>
+//     fetchPlayerDatas(PLAYER_ID, SEASON)
+//   )
 
-  await queryClient.fetchQuery(["PlayerPalmares", PLAYER_ID], () =>
-    fetchPlayerPalmares(PLAYER_ID)
-  )
+//   await queryClient.fetchQuery(["PlayerPalmares", PLAYER_ID], () =>
+//     fetchPlayerPalmares(PLAYER_ID)
+//   )
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  }
-}
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//     },
+//   }
+// }

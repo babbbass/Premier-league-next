@@ -2,7 +2,7 @@ import React from "react"
 import { useQuery } from "react-query"
 import styles from "./styles.module.css"
 import Link from "next/link"
-// import { standing } from "@/utils/dataTest/standingAssists"
+import { standing } from "@/utils/dataTest/standingAssists"
 import { rankingProps, RankingAssistsProps } from "@/types/rankingType"
 import { Error } from "@/components/error/error"
 import { fetchTopAssists } from "@/queries/standing"
@@ -12,18 +12,18 @@ export function StandingAssists({
   season,
   active,
 }: rankingProps) {
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ["topAssits", [season, competitionId]],
-    queryFn: () => fetchTopAssists(season, competitionId),
-  })
+  // const { isLoading, isError, data } = useQuery({
+  //   queryKey: ["topAssits", [season, competitionId]],
+  //   queryFn: () => fetchTopAssists(season, competitionId),
+  // })
 
-  if (!data.results) {
-    return (
-      <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
-    )
-  }
+  // if (!data.results) {
+  //   return (
+  //     <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
+  //   )
+  // }
 
-  const standing = data ? data.response : []
+  // const standing = data ? data.response : []
 
   return (
     <table
@@ -57,10 +57,12 @@ export function StandingAssists({
                 {statsPlayer.player.name}
               </Link>
             </td>
-            <td className={styles.goalsAssists}>
+            <td className='text-center'>
               {statsPlayer.statistics[0].goals.assists}
             </td>
-            <td>{statsPlayer.statistics[0].goals.total}</td>
+            <td className='text-center'>
+              {statsPlayer.statistics[0].goals.total}
+            </td>
           </tr>
         ))}
       </tbody>

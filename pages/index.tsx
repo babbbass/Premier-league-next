@@ -1,7 +1,6 @@
 import Head from "next/head"
-import Image from "next/image"
-import styles from "@/styles/Home.module.css"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
@@ -15,20 +14,36 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className={styles.main}>
-        <nav className={styles.linkContainer}>
-          <Link href='/standings' className={styles.card}>
-            <button className={`${styles.homeButton} ${styles.card}`}>
+      <main className='h-screen flex items-center justify-center'>
+        <div className='flex flex-col h-full justify-center items-center p-2 mb-auto'>
+          <Link href='/standings'>
+            <Button
+              variant='secondary'
+              className={`font-bold mb-10 p-16 text-purple-900 border-purple-900 aspect-video border rounded-3xl
+               hover:border-purple-700 hover:bg-purple-800 hover:text-slate-50`}
+            >
               Classement
-            </button>
+            </Button>
           </Link>
           <Link href='/teams'>
-            <button className={styles.homeButton}>Equipes</button>
+            <Button
+              variant='secondary'
+              className={`font-bold mb-10 p-16 aspect-video border text-purple-900 border-purple-900 rounded-3xl
+              hover:border-purple-700 hover:bg-purple-800 hover:text-slate-50`}
+            >
+              Equipes
+            </Button>
           </Link>
           <Link href='/results'>
-            <button className={styles.homeButton}>Resultats</button>
+            <Button
+              variant='secondary'
+              className={`font-bold mb-10 text-purple-900 border-purple-900 p-16 aspect-video border rounded-3xl
+              hover:border-purple-700 hover:bg-purple-800 hover:text-slate-50`}
+            >
+              Resultats
+            </Button>
           </Link>
-        </nav>
+        </div>
       </main>
     </>
   )

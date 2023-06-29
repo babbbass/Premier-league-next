@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
-    <>
+    <div className='bg-white'>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Header />
@@ -17,6 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <Footer />
         </Hydrate>
       </QueryClientProvider>
-    </>
+    </div>
   )
 }

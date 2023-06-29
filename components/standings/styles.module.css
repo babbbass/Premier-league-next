@@ -71,10 +71,6 @@
 	font-style: italic;
 }
 
-.goalsAssists, .goals {
-	min-width: 50px;
-}
-
 @media(min-width: 380px) {
 	.table {
 		min-width: 300px;

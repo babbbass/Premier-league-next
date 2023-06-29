@@ -22,6 +22,6 @@ headersDataFootball.append("X-Auth-Token", "8e14cf89be6f49f48ad302e77b47f7fd")
 
 export const requestOptionsFootballDataOrg: RequestInit = {
   method: "GET",
+  // mode: "cors",
   headers: headersDataFootball,
-  redirect: "follow",
 }

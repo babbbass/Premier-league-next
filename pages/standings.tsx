@@ -11,7 +11,6 @@ import { StandingAssists } from "@/components/standings/assists"
 import { StandingScorers } from "@/components/standings/scorers"
 import { SEASON, COMPETITION_ID } from "@/utils/config"
 import { dehydrate, QueryClient } from "react-query"
-
 export default function Standings() {
   const [displayTeams, setDisplayTeams] = useState(true)
   const [displayScorers, setDisplayScorers] = useState(false)
@@ -20,7 +19,7 @@ export default function Standings() {
   return (
     <>
       <Head>
-        <title>Premier league - Classements</title>
+        <title>Classements - Premier league</title>
         <meta
           name='description'
           content='Infos et résultats sur la premier league anglaise'
@@ -30,9 +29,13 @@ export default function Standings() {
       </Head>
       <main className={styles.main}>
         <h2 className={styles.titlePage}>Classement</h2>
-        <div className={styles.standingButtonsContainer}>
+        <div className='mb-4'>
           <button
-            className={`${styles.button} ${displayTeams ? styles.active : ""}`}
+            className={`hover:bg-purple-700 p-2 sm:p-6 cursor:pointer rounded-3xl ${
+              displayTeams
+                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                : ""
+            }`}
             onClick={() => {
               setDisplayTeams(true)
               setDisplayScorers(false)
@@ -42,8 +45,10 @@ export default function Standings() {
             Equipes
           </button>
           <button
-            className={`${styles.button} ${
-              displayScorers ? styles.active : ""
+            className={`hover:bg-purple-700 p-2 sm:p-6 sm:m-2 cursor:pointer rounded-3xl ${
+              displayScorers
+                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                : ""
             }`}
             onClick={() => {
               setDisplayScorers(true)
@@ -54,8 +59,10 @@ export default function Standings() {
             Buteurs
           </button>
           <button
-            className={`${styles.button} ${
-              displayAssiters ? styles.active : ""
+            className={`hover:bg-purple-700 p-2 sm:p-6 cursor:pointer rounded-3xl ${
+              displayAssiters
+                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                : ""
             }`}
             onClick={() => {
               setDisplayAssiters(true)

@@ -4,19 +4,25 @@ import styles from "./styles.module.css"
 export function OpenClose({ isActive, setActive }: any) {
   return (
     <div
-      className={styles.openCloseMenu}
+      className='flex flex-col justify-center absolute h-8 w-8 z-10 right-5 top-2 md:hidden'
       onClick={() => {
         setActive(!isActive)
       }}
     >
       <span
-        className={`${styles.line1} ${isActive ? styles.active : ""}`}
+        className={`transition-all ease-in absolute border w-full block border-solid border-purple-900 -translate-y-2.5  ${
+          isActive ? "translate-y-0 -rotate-45 border-white" : ""
+        }`}
       ></span>
       <span
-        className={`${styles.line2} ${isActive ? styles.active : ""}`}
+        className={`transition-all ease-in absolute border w-full block border-solid border-purple-900 ${
+          isActive ? "rotate-45 border-white" : ""
+        }`}
       ></span>
       <span
-        className={`${styles.line3} ${isActive ? styles.active : ""}`}
+        className={`absolute transition-all ease-in border w-full block border-solid border-purple-900 translate-y-2.5 ${
+          isActive ? "opacity-0" : ""
+        }`}
       ></span>
     </div>
   )

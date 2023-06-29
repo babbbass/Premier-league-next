@@ -1,21 +1,21 @@
 .container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* width: 100%;
+    display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
 }
 
 .card {
-    width: 48%;
-    height: 40vh;
-    overflow: hidden;
+    /* width: 48%; */
+    /* height: 40vh; */
+    /* overflow: hidden; */
     background: var(--background-card-color);
-    border-radius: 2%;
-    padding: 10px 0;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    font-style: italic;
+    /* border-radius: 2%; */
+    /* padding: 10px 0; */
+    /* margin-top: 10px; */
+    /* display: flex;
+    flex-direction: column; */
+    /* font-style: italic; */
 }
 
 .card:hover {

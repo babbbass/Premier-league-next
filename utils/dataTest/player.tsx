@@ -12,9 +12,29 @@ export const player = [
         team: {
           id: 85,
           name: "PSG",
+          logo: "https://media.api-sports.io/football/players/276.png",
         },
         league: {
           name: "Ligue 1",
+          logo: "https://media.api-sports.io/football/players/276.png",
+        },
+      },
+      {
+        games: {
+          appearences: 5,
+        },
+        goals: {
+          total: 9,
+          assists: 4,
+        },
+        team: {
+          id: 85,
+          name: "PSG",
+          logo: "https://media.api-sports.io/football/players/276.png",
+        },
+        league: {
+          name: "Ligue 2",
+          logo: "https://media.api-sports.io/football/players/276.png",
         },
       },
     ],

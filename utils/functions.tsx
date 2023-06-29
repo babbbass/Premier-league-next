@@ -7,7 +7,11 @@ type PlayerArray = Player[]
 
 export function playersForPosition(position: PlayerArray) {
   return position.map((player) => (
-    <Link href={`/player/${player.id}`} className={styles.card} key={player.id}>
+    <Link
+      href={`/player/${player.id}`}
+      className={`flex rounded-xl border border-purple-700 overflow-hidden mt-4 p-2 italic items-center h-16 w-full ${styles.card}`}
+      key={player.id}
+    >
       <div className={styles.imgContainer}>
         <img
           className={styles.playerImg}
@@ -15,8 +19,8 @@ export function playersForPosition(position: PlayerArray) {
           alt={`${player.name}-photo`}
         />
       </div>
-      <div className={styles.name}>{player.name}</div>
-      <div className={styles.info}>
+      <div className='text-red-500 text-xl font-bold'>{player.name}</div>
+      <div className={`flex items-center ${styles.info}`}>
         <div className={styles.age}>{player.age} ans</div>
         <div>N°{player.number}</div>
       </div>

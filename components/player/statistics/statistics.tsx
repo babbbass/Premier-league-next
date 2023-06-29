@@ -1,5 +1,4 @@
 import React from "react"
-import styles from "./styles.module.css"
 import {
   PlayerStatisticsProps as PlayerStatictics,
   Statistics,
@@ -8,32 +7,37 @@ import {
 export function Statistics({ statistics }: PlayerStatictics) {
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.statistics}>
-          <h2 className={styles.titleComponent}>Statistiques</h2>
-          <table className={styles.tableStats}>
+      <div className='w-full mb-10'>
+        <div className='w-full flex flex-col justify-center items-center'>
+          <h2 className='w-full mb-6 font-bold text-2xl text-center text-purple-900'>
+            Statistiques
+          </h2>
+          <table className='w-full sm:w-2/3'>
             <thead>
               <tr>
                 <th></th>
-                <th>M</th>
-                <th>B</th>
-                <th>P</th>
+                <th className='text-red-500'>M</th>
+                <th className='text-red-500'>B</th>
+                <th className='text-red-500'>P</th>
               </tr>
             </thead>
             <tbody>
               {statistics.map((infos: Statistics, key: number) => (
                 <tr
                   key={`${++key}-${infos.league.name}-statistics`}
-                  className={styles.rowCompetition}
+                  className='font-normal h-8'
                 >
-                  <td className={styles.leagueName}>
-                    <img src={infos.league.logo} />
+                  <td className='text-left flex items-center italic'>
+                    <img className='h-6 mr-2' src={infos.league.logo} />
                     {infos.league.name}
                   </td>
-                  <td>{infos.games.appearences}</td>
-                  <td>{infos.goals.total}</td>
-                  <td>{infos.goals.assists ? infos.goals.assists : 0}</td>
-                  {/* <img className={styles.name} src={infos.team.logo} /> */}
+                  <td className='text-center italic'>
+                    {infos.games.appearences}
+                  </td>
+                  <td className='text-center italic'>{infos.goals.total}</td>
+                  <td className='text-center italic'>
+                    {infos.goals.assists ? infos.goals.assists : 0}
+                  </td>
                 </tr>
               ))}
             </tbody>

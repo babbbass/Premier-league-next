@@ -29,7 +29,7 @@ export function Match({ matchId }: match) {
         </div>
       </Link>
       <div className='py-4 w-full h-full flex items-center justify-center'>
-        <div className='flex flex-col items-center w-full w-1/5'>
+        <div className='flex flex-col items-center w-1/5'>
           <Link href=''>
             <Image
               src={`${match.homeTeam.crest}`}
@@ -53,7 +53,7 @@ export function Match({ matchId }: match) {
             <div className='px-2'>-</div>
             <div className=''>{match.score.fullTime.away}</div>
           </div>
-          <div className='text-xs font-light'>{match.status}</div>
+          <div className='text-xs text-center font-light'>{match.status}</div>
         </div>
         <div className='flex flex-col items-center justify-center w-1/5'>
           <Link href=''>
