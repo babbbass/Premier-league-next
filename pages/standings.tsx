@@ -28,7 +28,7 @@ export default function Standings() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <h2 className={styles.titlePage}>Classement</h2>
+        <h2 className={`text-red-500 mt-4 ${styles.titlePage}`}>Classement</h2>
         <div className='mb-4'>
           <button
             className={`hover:bg-purple-700 p-2 sm:p-6 cursor:pointer rounded-3xl ${

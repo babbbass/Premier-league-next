@@ -1,28 +1,26 @@
 import React from "react"
-import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 import { useQuery } from "react-query"
-import styles from "./styles.module.css"
 import { Statistics } from "@/components/player/statistics/statistics"
 import Link from "next/link"
 import { Error } from "@/components/error/error"
-import { player as playerInfos } from "@/utils/dataTest/player"
+// import { player as playerInfos } from "@/utils/dataTest/player"
 import { PlayerProps } from "@/types/PlayerType"
 import { Palmares } from "@/components/player/palmares/palmares"
 import { fetchPlayerDatas } from "@/queries/player"
 
 export function Civility({ id, season }: PlayerProps["player"]) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["fetchPlayer", [id, season]],
-  //   queryFn: () => fetchPlayerDatas(id, season),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["fetchPlayer", [id, season]],
+    queryFn: () => fetchPlayerDatas(id, season),
+  })
 
-  // if (!data.results) {
-  //   return (
-  //     <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
-  //   )
-  // }
+  if (!data?.results) {
+    return (
+      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
-  // const playerInfos = data ? data.response : []
+  const playerInfos = data ? data.response : []
 
   return (
     <div className='w-full flex flex-col items-center justify-center'>
@@ -61,7 +59,7 @@ export function Civility({ id, season }: PlayerProps["player"]) {
             </div>
           </div>
           <Link
-            className='sm:mt-6 sm:flex-col sm:items-end sm:justify-center mt-10 w-full flex justify-between items-center'
+            className='sm:w-1/5 sm:mt-6 sm:flex-col sm:items-end sm:justify-center mt-10 ml-10 w-full flex justify-between items-center'
             href={
               playerInfos[0]
                 ? `/team/${playerInfos[0].statistics[0].team.id}`
@@ -73,7 +71,7 @@ export function Civility({ id, season }: PlayerProps["player"]) {
               alt={`${infos.statistics[0].team.name}-logo`}
               className='w-20'
             />
-            <div className='font-bold italic pr-6 mt-2'>
+            <div className='font-bold italic pr-4 mt-2'>
               {infos.statistics[0].team.name}
             </div>
           </Link>

@@ -2,24 +2,24 @@ import React from "react"
 import { useQuery } from "react-query"
 import styles from "./styles.module.css"
 import Link from "next/link"
-import { standingTeams as standings } from "@/utils/dataTest/standing"
+// import { standingTeams as standings } from "@/utils/dataTest/standing"
 import { Error } from "@/components/error/error"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
 import { fetchTeamsStanding } from "@/queries/standing"
 
 export function StandingTeams({ competitionId, season, active }: rankingProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["standingTeams", [season, competitionId]],
-  //   queryFn: () => fetchTeamsStanding(season, competitionId),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["standingTeams", [season, competitionId]],
+    queryFn: () => fetchTeamsStanding(season, competitionId),
+  })
 
-  // if (!data.results) {
-  //   return (
-  //     <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
-  //   )
-  // }
+  if (!data.results) {
+    return (
+      <Error active={active} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
-  // const standings = data ? data.response[0]?.league.standings[0] : []
+  const standings = data ? data.response[0]?.league.standings[0] : []
 
   return (
     <table

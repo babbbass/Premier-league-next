@@ -1,25 +1,25 @@
 import React from "react"
 import { useQuery } from "react-query"
 import Link from "next/link"
-import { teams } from "@/utils/dataTest/teams"
+// import { teams } from "@/utils/dataTest/teams"
 import { Error } from "@/components/error/error"
 import { TeamsProps } from "@/types/TeamsProps"
 import { Team } from "@/types/TeamProps"
 import { fetchTeamsOfCompetition } from "@/queries/team"
 
 export function AllTeams({ competitionId }: TeamsProps) {
-  // const { isLoading, isError, data } = useQuery({
-  //   queryKey: ["allTeams", competitionId],
-  //   queryFn: () => fetchTeamsOfCompetition(competitionId),
-  // })
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["allTeams", competitionId],
+    queryFn: () => fetchTeamsOfCompetition(competitionId),
+  })
 
-  // if (!data.results) {
-  //   return (
-  //     <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
-  //   )
-  // }
+  if (!data.results) {
+    return (
+      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+    )
+  }
 
-  // const teams = data ? data.response : []
+  const teams = data ? data.response : []
 
   return (
     <div className={`flex-wrap w-full sm:w-4/5 flex justify-between`}>
@@ -27,7 +27,7 @@ export function AllTeams({ competitionId }: TeamsProps) {
         <Link
           href={`/team/${team.team.id}`}
           key={team.team.id}
-          className={`w-[48%] sm:w-[30%] border border-purple-700 rounded-xl h-56 flex flex-col italic mt-4 py-4 overflow-hidden`}
+          className={`w-[48%] sm:w-[30%] border border-purple-700 rounded-xl h-60 flex flex-col italic mt-4 py-4 overflow-hidden`}
         >
           <div className='h-1/3 flex text-xl text-center justify-center items-center font-bold text-red-500'>
             {team.team.name}

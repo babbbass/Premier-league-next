@@ -46,14 +46,14 @@ export default function MatchDay() {
           {matchDay > 1 && (
             <span
               onClick={() => setMatchDay(() => matchDay - 1)}
-              className='mr-4'
+              className='mr-2'
             >{`<<`}</span>
           )}
           Journée {matchDay}
           {matchDay < 38 && (
             <span
               onClick={() => setMatchDay(() => matchDay + 1)}
-              className='ml-4'
+              className='ml-2'
             >{`>>`}</span>
           )}
         </div>
@@ -84,11 +84,6 @@ export default function MatchDay() {
               <div className='w-1/6 text-right pr-2'>
                 {match.score.fullTime.home}
               </div>
-              {match.score.halfTime.home && (
-                <div className='text-slate-400'>
-                  ({match.score.halfTime.home})
-                </div>
-              )}
             </div>
             <div
               className={`inline flex items-center ${
@@ -109,11 +104,6 @@ export default function MatchDay() {
               <div className='w-1/6 text-right pr-2'>
                 {match.score.fullTime.away}
               </div>
-              {match.score.halfTime.away && (
-                <div className='text-slate-400'>
-                  ({match.score.halfTime.away})
-                </div>
-              )}
             </div>
           </Link>
         </div>

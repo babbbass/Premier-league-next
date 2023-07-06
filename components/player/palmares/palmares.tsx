@@ -1,18 +1,17 @@
 import React from "react"
 import { useQuery } from "react-query"
-import styles from "./styles.module.css"
-import { trophies } from "@/utils/dataTest/trophies"
+// import { trophies } from "@/utils/dataTest/trophies"
 import { PlayerProps } from "@/types/PlayerPalmares"
 import { Trophies } from "@/types/PlayerTrophies"
 import { fetchPlayerPalmares } from "@/queries/player"
 
 export function Palmares({ player }: PlayerProps) {
-  // const { data, isError, isLoading } = useQuery({
-  //   queryKey: ["PlayerPalmares", player.id],
-  //   queryFn: () => fetchPlayerPalmares(player.id),
-  // })
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["PlayerPalmares", player.id],
+    queryFn: () => fetchPlayerPalmares(player.id),
+  })
 
-  // const trophies = data ? data.response : []
+  const trophies = data ? data.response : []
   return (
     <div className='w-full flex items-center flex-wrap justify-around'>
       <h2 className='w-full mb-6 font-bold text-2xl text-center text-purple-900'>
@@ -21,7 +20,7 @@ export function Palmares({ player }: PlayerProps) {
       {trophies.map((competition: Trophies) => (
         <div
           key={`${competition.league}-${competition.season} `}
-          className='w-4/5 xs:w-2/5 h-40 p-2 flex flex-col mt-2 mb-8 border rounded-2xl border-purple-800'
+          className='w-4/5 xs:w-2/5 h-42 p-2 flex flex-col mt-2 mb-8 border rounded-2xl border-purple-800'
         >
           <h3 className='text-red-500 font-bold italic mb-5 text-center'>
             {competition.league}

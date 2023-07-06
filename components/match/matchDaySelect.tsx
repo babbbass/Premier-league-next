@@ -1,11 +1,4 @@
-import React from "react"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import React, { ChangeEvent } from "react"
 
 const seasons: any = []
 let seasonStart = 2020
@@ -16,24 +9,27 @@ for (let i = 0; i < 4; i++) {
 }
 
 export default function MatchDaySelect({ setSeason, season }: any) {
-  function handleChange(year: number) {
-    return setSeason(year)
+  function handleChange(e: ChangeEvent<HTMLSelectElement>) {
+    return setSeason(e.target.value)
   }
 
   return (
-    <div>
-      <Select onValueChange={(e) => handleChange(parseInt(e))}>
-        <SelectTrigger className='border-0 focus:tw-ring-0 w-[180px] '>
-          <SelectValue placeholder={`${season}`} />
-        </SelectTrigger>
-        <SelectContent>
-          {seasons.map((day: number, key: number) => (
-            <SelectItem key={key++} value={`${day}`}>
-              {day}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+    <div className='pr-6'>
+      <select className='bg-purple-900 w-20' onChange={(e) => handleChange(e)}>
+        <option className='text-center' value={season}>
+          {season}
+        </option>
+        {seasons.map((year: number, key: number) => {
+          if (year === parseInt(season)) {
+            return
+          }
+          return (
+            <option className='text-center w-20' key={key++} value={year}>
+              {year}
+            </option>
+          )
+        })}
+      </select>
     </div>
   )
 }

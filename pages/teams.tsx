@@ -25,16 +25,16 @@ export default function Teams() {
   )
 }
 
-// export async function getServerSideProps() {
-//   const queryClient = new QueryClient()
+export async function getServerSideProps() {
+  const queryClient = new QueryClient()
 
-//   await queryClient.fetchQuery(["allTeams", COMPETITION_ID], () =>
-//     fetchTeamsOfCompetition(COMPETITION_ID)
-//   )
+  await queryClient.fetchQuery(["allTeams", COMPETITION_ID], () =>
+    fetchTeamsOfCompetition(COMPETITION_ID)
+  )
 
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//     },
-//   }
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
+}
