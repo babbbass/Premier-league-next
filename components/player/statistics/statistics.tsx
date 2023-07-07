@@ -25,10 +25,10 @@ export function Statistics({ statistics }: PlayerStatictics) {
               {statistics.map((infos: Statistics, key: number) => (
                 <tr
                   key={`${++key}-${infos.league.name}-statistics`}
-                  className='font-normal h-8'
+                  className='font-normal h-10'
                 >
                   <td className='text-left flex items-center italic'>
-                    <img className='h-6 mr-2' src={infos.league.logo} />
+                    <img className='w-6 my-2 mr-2' src={infos.league.logo} />
                     {infos.league.name}
                   </td>
                   <td className='text-center italic'>

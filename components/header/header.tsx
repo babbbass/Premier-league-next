@@ -7,7 +7,7 @@ import Image from "next/image"
 export function Header() {
   return (
     <header>
-      <div className='text-center h-full mt-10 relative'>
+      <div className='text-center h-full pt-4 relative'>
         <div className='flex justify-center items-center'>
           <Image
             src={logo}

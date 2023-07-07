@@ -27,22 +27,23 @@ export function Civility({ id, season }: PlayerProps["player"]) {
       {playerInfos.map((infos: any, key: number) => (
         <div
           key={`${++key}-${infos.player.name}-civility`}
-          className='mb-6 flex flex-col sm:w-4/5 sm:flex-row sm:justify-end justify-between w-full'
+          className='mb-6 flex flex-col sm:w-4/5 md:w-3/5 sm:flex-row justify-between w-full'
         >
-          <div className='flex sm:w-4/5 items-center justify-center'>
-            <div className='flex text-red-500 flex-col items-center justify-center mt-0 mr-6 ml-0'>
-              <div className='font-bold italic font-medium mb-4'>
-                {infos.player.nationality}
+          <div className='flex sm:w-4/5 sm:justify-start items-center justify-center'>
+            <div className='w-1/3 flex flex-col overflow-hidden items-center justify-center mr-2 mt-0 ml-0'>
+              <div className='w-full font-bold italic text-red-500 text-xl mb-4'>
+                {infos.player.name}
               </div>
               <img
                 src={infos.player.photo}
                 alt={`${infos.player.name}-photo`}
+                className='w-30'
               />
-              <h2 className='font-bold mt-2 text-red-500 text-xl italic'>
-                {infos.player.name}
+              <h2 className='font-medium mt-2 italic'>
+                {infos.player.nationality}
               </h2>
             </div>
-            <div className='pt-4 h-full flex flex-col justify-center'>
+            <div className='pt-4 h-full flex flex-col justify-center text-xs'>
               <div className='h-6 flex items-center justify-between'>
                 <span>Age:</span>
                 {infos.player.age}
@@ -59,7 +60,7 @@ export function Civility({ id, season }: PlayerProps["player"]) {
             </div>
           </div>
           <Link
-            className='sm:w-1/5 sm:mt-6 sm:flex-col sm:items-end sm:justify-center mt-10 ml-10 w-full flex justify-between items-center'
+            className='sm:w-1/5 sm:mt-6 sm:flex-col sm:justify-center mt-10 w-full flex justify-between items-center'
             href={
               playerInfos[0]
                 ? `/team/${playerInfos[0].statistics[0].team.id}`
@@ -71,7 +72,7 @@ export function Civility({ id, season }: PlayerProps["player"]) {
               alt={`${infos.statistics[0].team.name}-logo`}
               className='w-20'
             />
-            <div className='font-bold italic pr-4 mt-2'>
+            <div className='font-bold italic mt-2'>
               {infos.statistics[0].team.name}
             </div>
           </Link>
