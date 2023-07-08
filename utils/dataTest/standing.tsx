@@ -33,7 +33,7 @@ export const standingTeams = [
     },
     team: {
       id: 40,
-      name: "Lens",
+      name: "Manchester United",
       logo: "https://media.api-sports.io/football/teams/40.png",
     },
   },

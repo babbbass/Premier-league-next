@@ -31,7 +31,7 @@ export default function Standings() {
         <h2 className={`text-red-500 mt-4 ${styles.titlePage}`}>Classement</h2>
         <div className='mb-4'>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-6 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-700 p-2 sm:p-4 cursor:pointer rounded-3xl ${
               displayTeams
                 ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
                 : ""
@@ -45,7 +45,7 @@ export default function Standings() {
             Equipes
           </button>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-6 sm:m-2 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-700 p-2 sm:p-4 sm:m-2 cursor:pointer rounded-3xl ${
               displayScorers
                 ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
                 : ""
@@ -59,7 +59,7 @@ export default function Standings() {
             Buteurs
           </button>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-6 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-700 p-2 sm:p-4 cursor:pointer rounded-3xl ${
               displayAssiters
                 ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
                 : ""
