@@ -17,7 +17,7 @@ export function Match({ matchId }: match) {
   return (
     <>
       <Link href='/results'>
-        <div className='flex flex-col items-center justify-center md:text-sm uppercase px-20 mb-6'>
+        <div className='flex flex-col text-red-500 italic fontsemibold items-center justify-center md:text-sm uppercase px-20 mb-6'>
           <Image
             src={`${match.competition.emblem}`}
             width={120}
@@ -39,7 +39,7 @@ export function Match({ matchId }: match) {
               className='mb-4 mx-auto mt-6'
             />
             <span
-              className={`${
+              className={`text-purple-900 italic ${
                 match.score.winner === "HOME_TEAM" ? "font-bold" : "font-light"
               }`}
             >
@@ -47,7 +47,7 @@ export function Match({ matchId }: match) {
             </span>
           </Link>
         </div>
-        <div className='flex flex-col px-6'>
+        <div className='flex bg-purple-900 text-slate-50 flex-col px-6 items-center'>
           <div className='font-bold text-4xl flex'>
             <div className=''>{match.score.fullTime.home}</div>
             <div className='px-2'>-</div>
@@ -65,7 +65,7 @@ export function Match({ matchId }: match) {
               className='mb-4 mx-auto mt-6'
             />
             <span
-              className={`${
+              className={` text-purple-900 italic ${
                 match.score.winner === "AWAY_TEAM" ? "font-bold" : "font-light"
               }`}
             >

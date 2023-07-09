@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
-    <div className='flex flex-col min-h-screen bg-white'>
+    <div className='px-2 flex flex-col min-h-screen bg-white'>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Header />
