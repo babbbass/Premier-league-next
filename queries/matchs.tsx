@@ -32,22 +32,13 @@ const fetchMatchesDay = async (
   matchDay: number,
   season: number
 ) => {
-  const url = `https://api.football-data.org/v4/competitions/${competitionId}/matches?matchday=${matchDay}&season=${season}`
+  const url = `/api/handleResults/${competitionId}/${matchDay}/${season}`
 
-  const response = await fetch(url, requestOptionsFootballDataOrg)
-  return await response.json()
+  const response = await fetch(url)
+  const data = await response.json()
+
+  return data
 }
-
-// const fetchMatchesBySeason = async (
-//   competitionId: number,
-//   matchDay = 1,
-//   season: number
-// ) => {
-//   const url = `https://api.football-data.org/v4/competitions/${competitionId}/matches?matchday=${matchDay}&season=${season}`
-
-//   const response = await fetch(url, requestOptionsFootballDataOrg)
-//   return await response.json()
-// }
 
 export const fetchMatch = async (matchId: number) => {
   const response = await fetch(
