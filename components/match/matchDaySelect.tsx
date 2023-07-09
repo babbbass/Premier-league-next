@@ -15,7 +15,7 @@ export default function MatchDaySelect({ setSeason, season }: any) {
 
   return (
     <div className='pr-6'>
-      <select className='bg-purple-900 w-20' onChange={(e) => handleChange(e)}>
+      <select className='bg-white w-20' onChange={(e) => handleChange(e)}>
         <option className='text-center' value={season}>
           {season}
         </option>

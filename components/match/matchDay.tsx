@@ -5,15 +5,15 @@ import { useQuery } from "react-query"
 import { fetchMatches } from "@/queries/matchs"
 import MatchDaySelect from "./matchDaySelect"
 
-const competition = 2021
+const competitionId = 2021
 
 export default function MatchDay() {
-  const [season, setSeason] = useState("")
+  const [season, setSeason] = useState(2023)
   const [matchDay, setMatchDay] = useState(0)
 
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["matches", [competition, season, matchDay]],
-    queryFn: () => fetchMatches(competition, season, matchDay),
+    queryKey: ["matches", [competitionId, matchDay, season]],
+    queryFn: () => fetchMatches({ competitionId, matchDay, season }),
   })
 
   if (isLoading) {
@@ -24,35 +24,22 @@ export default function MatchDay() {
     )
   }
 
-  let matches = data ? data.matches : []
-  if (!matchDay) {
-    matches = matches.filter((match: any) => {
-      return match.season.currentMatchday === match.matchday
-    })
-    setMatchDay(() => matches[0].season.currentMatchday)
-  }
-
-  if (matches.length > 0) {
-    if (!season) {
-      const year = matches[0].season.startDate.split("-")
-      setSeason(year[0])
-    }
-  }
-
+  const matches = data.matches ? data.matches : data ? data : []
+  const matchday = matches[0].matchday
   return (
     <>
-      <div className='bg-purple-900 mt-6 italic font-medium text-white text-left pl-2 h-8 flex justify-between items-center'>
+      <div className='border-red-500 border-2 mt-6 italic font-medium text-left pl-2 h-8 flex justify-between items-center'>
         <div className='mx-6 cursor-pointer'>
-          {matchDay > 1 && (
+          {matchday > 1 && (
             <span
-              onClick={() => setMatchDay(() => matchDay - 1)}
+              onClick={() => setMatchDay(() => matchday - 1)}
               className='mr-2'
             >{`<<`}</span>
           )}
-          Journée {matchDay}
-          {matchDay < 38 && (
+          Journée {matchday}
+          {matchday < 38 && (
             <span
-              onClick={() => setMatchDay(() => matchDay + 1)}
+              onClick={() => setMatchDay(() => matchday + 1)}
               className='ml-2'
             >{`>>`}</span>
           )}
@@ -62,7 +49,7 @@ export default function MatchDay() {
       {matches.map((match: any, index = 0) => (
         <div
           key={index++}
-          className='mx-6 mt-6 p-2 flex flex-col hover:bg-purple-700 hover:text-white hover:transition-colors'
+          className='mx-6 mt-6 p-2 flex flex-col hover:bg-purple-900 hover:text-white hover:transition-colors'
         >
           <Link href={`/match/${match.id}`}>
             <div
@@ -74,11 +61,11 @@ export default function MatchDay() {
           `}
             >
               <Image
+                className='mr-2'
                 src={`${match.homeTeam.crest}`}
                 width={30}
                 height={20}
                 alt={`logo ${match.homeTeam.name}`}
-                className='mr-2'
               />
               <div className='w-2/3 text-left'>{match.homeTeam.shortName}</div>
               <div className='w-1/6 text-right pr-2'>
