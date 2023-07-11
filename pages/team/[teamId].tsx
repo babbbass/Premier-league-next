@@ -6,7 +6,7 @@ import { fetchTeamSquad, fetchTeamStatistics } from "@/queries/team"
 import { useRouter } from "next/router"
 import { QueryClient, dehydrate } from "react-query"
 
-type Context = {
+type ContextServerSide = {
   params: {
     teamId: string
   }
@@ -34,7 +34,7 @@ export default function Players() {
   )
 }
 
-export async function getServerSideProps(context: Context) {
+export async function getServerSideProps(context: ContextServerSide) {
   const queryClient = new QueryClient()
   const TEAMID = parseInt(context.params.teamId)
 

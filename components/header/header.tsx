@@ -17,7 +17,7 @@ export function Header() {
             className='inline-block mr-2'
           />
           <Link href='/'>
-            <h1 className='font-bold text-3xl italic text-red-500'>
+            <h1 className='font-bold text-2xl md:text-3xl italic text-red-500'>
               Premier League
             </h1>
           </Link>

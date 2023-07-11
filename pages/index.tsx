@@ -14,15 +14,17 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='flex grow justify-center items-center'>
+      <main className={`flex grow justify-center items-center`}>
         <div className='flex flex-col h-full items-center p-2'>
-          <Button
-            variant='secondary'
-            className={`font-bold mb-10 p-16 text-red-500 border-purple-900 aspect-video border rounded-3xl
+          <Link href='/standings'>
+            <Button
+              variant='secondary'
+              className={`font-bold mb-10 p-16 text-red-500 border-purple-900 aspect-video border rounded-3xl
                hover:border-purple-700 hover:bg-purple-800 hover:text-slate-50`}
-          >
-            <Link href='/standings'>Classement</Link>
-          </Button>
+            >
+              Classement
+            </Button>
+          </Link>
           <Link href='/teams'>
             <Button
               variant='secondary'
