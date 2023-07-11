@@ -17,7 +17,7 @@ export function Match({ matchId }: match) {
   return (
     <>
       <Link href='/results'>
-        <div className='flex flex-col text-red-500 italic fontsemibold items-center justify-center md:text-sm uppercase px-20 mb-6'>
+        <div className='flex flex-col text-red-500 italic font-semibold text-xs items-center justify-center md:text-sm uppercase px-20'>
           <Image
             src={`${match.competition.emblem}`}
             width={120}
@@ -25,11 +25,11 @@ export function Match({ matchId }: match) {
             alt={`logo ${match.competition.name}`}
             className='inline-block mr-2'
           />
-          {match.competition.name} - Journée {match.season.currentMatchday}
+          Journée {match.season.currentMatchday}
         </div>
       </Link>
-      <div className='py-4 w-full h-full flex items-center justify-center'>
-        <div className='flex flex-col items-center w-1/5'>
+      <div className='py-4 w-full h-full flex text-xs md:text-sm items-center justify-center'>
+        <div className='flex h-full flex-col items-center w-1/5'>
           <Link href=''>
             <Image
               src={`${match.homeTeam.crest}`}
@@ -38,24 +38,24 @@ export function Match({ matchId }: match) {
               alt={`logo ${match.homeTeam.name}`}
               className='mb-4 mx-auto mt-6'
             />
-            <span
-              className={`text-purple-900 italic ${
+            <div
+              className={`h-10 text-purple-900 italic ${
                 match.score.winner === "HOME_TEAM" ? "font-bold" : "font-light"
               }`}
             >
               {match.homeTeam.shortName}
-            </span>
+            </div>
           </Link>
         </div>
-        <div className='flex bg-purple-900 text-slate-50 flex-col px-6 items-center'>
-          <div className='font-bold text-4xl flex'>
+        <div className='flex bg-purple-900 text-slate-50 flex-col px-2 mx-6 items-center text-xs'>
+          <div className='font-bold text-lg flex'>
             <div className=''>{match.score.fullTime.home}</div>
             <div className='px-2'>-</div>
             <div className=''>{match.score.fullTime.away}</div>
           </div>
-          <div className='text-xs text-center font-light'>{match.status}</div>
+          <div className='text-center font-light'>{match.status}</div>
         </div>
-        <div className='flex flex-col items-center justify-center w-1/5'>
+        <div className='flex h-full flex-col items-center justify-center w-1/5'>
           <Link href=''>
             <Image
               src={`${match.awayTeam.crest}`}
@@ -64,13 +64,13 @@ export function Match({ matchId }: match) {
               alt={`logo ${match.awayTeam.name}`}
               className='mb-4 mx-auto mt-6'
             />
-            <span
-              className={` text-purple-900 italic ${
+            <div
+              className={`h-10 text-purple-900 italic ${
                 match.score.winner === "AWAY_TEAM" ? "font-bold" : "font-light"
               }`}
             >
               {match.awayTeam.shortName}
-            </span>
+            </div>
           </Link>
         </div>
       </div>

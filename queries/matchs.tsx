@@ -17,14 +17,12 @@ export const fetchMatches = async ({
     return fetchMatchesDay(competitionId, matchDay, season)
   }
 
-  const url = `https://api.football-data.org/v4/competitions/${competitionId}/matches?season=${season}`
+  const url = `/api/handleResults/${competitionId}/season/${season}`
 
-  const response = await fetch(url, requestOptionsFootballDataOrg)
+  const response = await fetch(url)
   const data = await response.json()
-  const matches = data.matches.filter((match: any) => {
-    return match.season.currentMatchday === match.matchday
-  })
-  return matches
+
+  return data
 }
 
 const fetchMatchesDay = async (

@@ -28,8 +28,8 @@ export default function MatchDay() {
   const matchday = matches[0].matchday
   return (
     <>
-      <div className='border-red-500 border-2 mt-6 italic font-medium text-left pl-2 h-8 flex justify-between items-center'>
-        <div className='mx-6 cursor-pointer'>
+      <div className='mt-6 text-purple-900 text-sm md:text-base italic font-medium pl-2 h-8 flex justify-between items-center'>
+        <div className='mx-2 w-1/2 cursor-pointer'>
           {matchday > 1 && (
             <span
               onClick={() => setMatchDay(() => matchday - 1)}

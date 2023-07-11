@@ -7,7 +7,6 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   const { active } = useContext(MenuContext)
-  console.log(active)
   return (
     <div
       className={`flex flex-col px-2 min-h-screen bg-white  ${
