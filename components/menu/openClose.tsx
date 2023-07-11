@@ -11,12 +11,12 @@ export function OpenClose({ isActive, setActive }: any) {
     >
       <span
         className={`transition-all ease-in absolute border w-full block border-solid border-purple-900 -translate-y-2.5  ${
-          isActive ? "translate-y-0 -rotate-45 border-white" : ""
+          isActive ? "translate-y-0 -rotate-45" : ""
         }`}
       ></span>
       <span
         className={`transition-all ease-in absolute border w-full block border-solid border-purple-900 ${
-          isActive ? "rotate-45 border-white" : ""
+          isActive ? "rotate-45" : ""
         }`}
       ></span>
       <span

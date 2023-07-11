@@ -13,15 +13,24 @@ export function Menu() {
         className={`md:flex md:justify-center md:items-center md:py-0 py-20 bg-purple-900 text-slate-50 font-bold h-full w-full md:translate-x-0
          transition-all ease-in duration-500 ${
            active ? "translate-x-0" : "translate-x-full"
-         } fixed left-4 md:static`}
+         } fixed left-4 top-40 md:static`}
       >
-        <li className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center'>
+        <li
+          onClick={() => setActive(false)}
+          className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center'
+        >
           <Link href='/standings'>Classements</Link>
         </li>
-        <li className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center md:mx-10'>
+        <li
+          onClick={() => setActive(false)}
+          className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center md:mx-10'
+        >
           <Link href='/teams'>Equipes</Link>
         </li>
-        <li className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center'>
+        <li
+          onClick={() => setActive(false)}
+          className='m-2 hover:bg-purple-500 h-10 flex justify-center items-center'
+        >
           <Link href='/results'>Resultats</Link>
         </li>
       </ul>

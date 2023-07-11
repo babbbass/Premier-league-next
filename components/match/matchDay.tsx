@@ -18,7 +18,7 @@ export default function MatchDay() {
 
   if (isLoading) {
     return (
-      <div className='flex my-20 items-center justify-center'>
+      <div className='flex h-screen my-20 items-center justify-center'>
         Chargement...
       </div>
     )
@@ -28,7 +28,7 @@ export default function MatchDay() {
   const matchday = matches[0].matchday
   return (
     <>
-      <div className='mt-6 text-purple-900 text-sm md:text-base italic font-medium pl-2 h-8 flex justify-between items-center'>
+      <div className='mt-6 text-purple-900 text-sm md:text-base text-left italic font-medium pl-2 h-8 flex justify-between items-center'>
         <div className='mx-2 w-1/2 cursor-pointer'>
           {matchday > 1 && (
             <span
@@ -49,9 +49,9 @@ export default function MatchDay() {
       {matches.map((match: any, index = 0) => (
         <div
           key={index++}
-          className='mx-6 mt-6 p-2 flex flex-col hover:bg-purple-900 hover:text-white hover:transition-colors'
+          className='mx-6 mt-6 p-2 flex text-sm md:text-base flex-col hover:bg-purple-900 hover:text-white hover:transition-colors'
         >
-          <Link href={`/match/${match.id}`}>
+          <Link className='text-purple-900' href={`/match/${match.id}`}>
             <div
               className={`inline flex items-center mb-4 w-full ${
                 match.score.winner === "HOME_TEAM"
