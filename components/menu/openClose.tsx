@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 export function OpenClose({ isActive, setActive }: any) {
   return (
     <div
-      className='flex flex-col justify-center absolute h-8 w-8 z-10 right-5 top-2 md:hidden'
+      className='flex flex-col justify-center relative h-10 w-8 z-20 md:hidden'
       onClick={() => {
         setActive(!isActive)
       }}

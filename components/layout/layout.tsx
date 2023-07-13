@@ -9,7 +9,7 @@ export default function Layout({ children }: Props) {
   const { active } = useContext(MenuContext)
   return (
     <div
-      className={`flex flex-col px-2 min-h-screen bg-white  ${
+      className={`flex flex-col min-h-screen bg-white  ${
         active ? "fixed top-4 bottom-4 left-4 right-4" : ""
       }`}
     >
