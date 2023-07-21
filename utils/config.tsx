@@ -13,15 +13,3 @@ export const BASE_FOOTBALL_URL = `https://v3.football.api-sports.io`
 
 export const COMPETITION_ID = 39
 export const SEASON = 2022
-
-// Data football.org
-
-const headersDataFootball = new Headers()
-
-headersDataFootball.append("X-Auth-Token", "8e14cf89be6f49f48ad302e77b47f7fd")
-
-export const requestOptionsFootballDataOrg: RequestInit = {
-  method: "GET",
-  // mode: "cors",
-  headers: headersDataFootball,
-}

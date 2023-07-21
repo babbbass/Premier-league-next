@@ -1,47 +1,25 @@
-import { requestOptionsFootballDataOrg } from "@/utils/config"
-const date = new Date().toJSON().split("T")
-const dateNow = date.at(0)
+import {
+  requestOptions,
+  BASE_FOOTBALL_URL,
+  COMPETITION_ID,
+} from "@/utils/config"
 
-type requestParameters = {
-  competitionId: number
-  matchDay: number
-  season: number
-}
-
-export const fetchMatches = async ({
-  competitionId,
-  matchDay,
-  season,
-}: requestParameters) => {
-  if (matchDay) {
-    return fetchMatchesDay(competitionId, matchDay, season)
-  }
-
-  const url = `/api/handleResults/${competitionId}/season/${season}`
-
-  const response = await fetch(url)
-  const data = await response.json()
-
-  return data
-}
-
-const fetchMatchesDay = async (
-  competitionId: number,
-  matchDay: number,
-  season: number
+export const fetchMatches = async (
+  season: number,
+  round: number | undefined
 ) => {
-  const url = `/api/handleResults/${competitionId}/${matchDay}/${season}`
+  const url = round
+    ? `${BASE_FOOTBALL_URL}/fixtures?league=${COMPETITION_ID}&season=${season}&round=Regular+Season+-+${round}`
+    : `${BASE_FOOTBALL_URL}/fixtures?league=${COMPETITION_ID}&season=${season}&last=10`
+  console.log(url)
+  const response = await fetch(url, requestOptions)
 
-  const response = await fetch(url)
-  const data = await response.json()
-
-  return data
+  return await response.json()
 }
 
 export const fetchMatch = async (matchId: number) => {
-  const response = await fetch(
-    `https://api.football-data.org/v4/matches/${matchId}`,
-    requestOptionsFootballDataOrg
-  )
+  const url = `${BASE_FOOTBALL_URL}/fixtures?id=${matchId}`
+  const response = await fetch(url, requestOptions)
+
   return await response.json()
 }

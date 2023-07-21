@@ -1,19 +1,27 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useQuery } from "react-query"
 import { fetchMatches } from "@/queries/matchs"
+import { results } from "@/utils/dataTest/results"
 import MatchDaySelect from "./matchDaySelect"
-
-const competitionId = 2021
+import { useRouter } from "next/router"
+import { transformDate } from "@/utils/functions"
+import { SEASON } from "@/utils/config"
 
 export default function MatchDay() {
-  const [season, setSeason] = useState(2023)
   const [matchDay, setMatchDay] = useState(0)
+  const router = useRouter()
+
+  useEffect(() => {
+    router.query.round
+      ? setMatchDay(parseInt(router.query.round as string, 10))
+      : ""
+  }, [router.query.round])
 
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["matches", [competitionId, matchDay, season]],
-    queryFn: () => fetchMatches({ competitionId, matchDay, season }),
+    queryKey: ["matches", [SEASON, matchDay]],
+    queryFn: () => fetchMatches(SEASON, matchDay),
   })
 
   if (isLoading) {
@@ -24,72 +32,78 @@ export default function MatchDay() {
     )
   }
 
-  const matches = data.matches ? data.matches : data ? data : []
-  const matchday = matches[0].matchday
+  const matches = data ? data.response : []
+
+  // const matches = results
+
+  const day =
+    matches.length >= 1 ? parseInt(matches[0].league.round.split("-")[1]) : 0
+
   return (
     <>
-      <div className='mt-6 text-purple-900 text-sm md:text-base text-left italic font-medium pl-2 h-8 flex justify-between items-center'>
-        <div className='mx-2 w-1/2 cursor-pointer'>
-          {matchday > 1 && (
+      <div className='mt-6 text-purple-900 text-sm md:text-base text-center italic font-medium pl-2 h-8 flex justify-between items-center'>
+        <div className='mx-2 w-full cursor-pointer'>
+          {day > 1 && (
             <span
-              onClick={() => setMatchDay(() => matchday - 1)}
-              className='mr-2'
+              onClick={() => setMatchDay(() => day - 1)}
+              className='mr-10'
             >{`<<`}</span>
           )}
-          Journée {matchday}
-          {matchday < 38 && (
+          Journée {day}
+          {day < 38 && (
             <span
-              onClick={() => setMatchDay(() => matchday + 1)}
-              className='ml-2'
+              onClick={() => setMatchDay(() => day + 1)}
+              className='ml-10'
             >{`>>`}</span>
           )}
         </div>
-        <MatchDaySelect setSeason={setSeason} season={season} />
+        {/* {/* <MatchDaySelect setSeason={setSeason} season={season} />  */}
       </div>
+
       {matches.map((match: any, index = 0) => (
         <div
           key={index++}
-          className='mx-6 mt-6 p-2 flex text-sm md:text-base flex-col hover:bg-purple-900 hover:text-white hover:transition-colors'
+          className='mx mt-6 p-2 flex text-xs md:text-base hover:bg-pink-500 hover:text-white hover:transition-colors'
         >
-          <Link className='text-purple-900' href={`/match/${match.id}`}>
-            <div
-              className={`inline flex items-center mb-4 w-full ${
-                match.score.winner === "HOME_TEAM"
-                  ? "font-medium"
-                  : "font-light"
-              }
-          `}
-            >
-              <Image
-                className='mr-2'
-                src={`${match.homeTeam.crest}`}
-                width={30}
-                height={20}
-                alt={`logo ${match.homeTeam.name}`}
-              />
-              <div className='w-2/3 text-left'>{match.homeTeam.shortName}</div>
-              <div className='w-1/6 text-right pr-2'>
-                {match.score.fullTime.home}
-              </div>
+          <Link className='flex w-full' href={`/match/${match.fixture.id}`}>
+            <div className='flex items-center justify-center w-1/5 text-xs  hover:text-white mr-2'>
+              <span>{transformDate(match.fixture.date).day}</span>
+              <span className='hidden md:inline-block ml-1'>
+                {transformDate(match.fixture.date).hour}
+              </span>
             </div>
-            <div
-              className={`inline flex items-center ${
-                match.score.winner === "AWAY_TEAM"
-                  ? "font-medium"
-                  : "font-light"
-              }
+            <div className='flex flex-col w-4/5'>
+              <div
+                className={`flex items-center mb-4 ${
+                  match.teams.home.winner ? "font-medium" : "font-light"
+                }
           `}
-            >
-              <Image
-                src={`${match.awayTeam.crest}`}
-                width={30}
-                height={20}
-                alt={`logo ${match.awayTeam.name}`}
-                className='mr-2'
-              />
-              <div className='w-2/3 text-left'>{match.awayTeam.shortName}</div>
-              <div className='w-1/6 text-right pr-2'>
-                {match.score.fullTime.away}
+              >
+                <Image
+                  className='mr-2'
+                  src={`${match.teams.home.logo}`}
+                  width={30}
+                  height={20}
+                  alt={`logo ${match.teams.home.name}`}
+                />
+                <div className='w-2/3 text-left'>{match.teams.home.name}</div>
+                <div className='w-1/6 text-right pr-2'>{match.goals.home}</div>
+              </div>
+              <div
+                className={`flex items-center ${
+                  match.teams.away.winner ? "font-medium" : "font-light"
+                }
+          `}
+              >
+                <Image
+                  src={`${match.teams.away.logo}`}
+                  width={30}
+                  height={20}
+                  alt={`logo ${match.teams.away.name}`}
+                  className='mr-2'
+                />
+                <div className='w-2/3 text-left'>{match.teams.away.name}</div>
+                <div className='w-1/6 text-right pr-2'>{match.goals.away}</div>
               </div>
             </div>
           </Link>
