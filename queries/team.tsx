@@ -6,6 +6,14 @@ import {
 } from "@/utils/config"
 
 export const fetchTeamsOfCompetition = async (season: number) => {
+  if (process.env.API_KEY) {
+    const response = await fetch(
+      `${BASE_FOOTBALL_URL}/teams?league=${COMPETITION_ID}&season=${season}`,
+      requestOptions
+    )
+
+    return response.json()
+  }
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${season}/all`
   )
@@ -16,6 +24,15 @@ export const fetchTeamsOfCompetition = async (season: number) => {
 }
 
 export const fetchTeamSquad = async (teamId: number) => {
+  if (process.env.API_KEY) {
+    const response = await fetch(
+      `${BASE_FOOTBALL_URL}/players/squads?team=${teamId}`,
+      requestOptions
+    )
+
+    return response.json()
+  }
+
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${SEASON}/${teamId}/squad`
   )
@@ -26,6 +43,15 @@ export const fetchTeamSquad = async (teamId: number) => {
 }
 
 export const fetchTeamStatistics = async (teamId: number) => {
+  if (process.env.API_KEY) {
+    const response = await fetch(
+      `${BASE_FOOTBALL_URL}/teams/statistics?team=${teamId}&season=${SEASON}&league=${COMPETITION_ID}`,
+      requestOptions
+    )
+
+    return response.json()
+  }
+
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${SEASON}/${teamId}/statistics`
   )
