@@ -2,6 +2,7 @@ import React from "react"
 import { dehydrate, QueryClient } from "react-query"
 import { fetchMatches } from "@/queries/matchs"
 import MatchDay from "@/components/match/matchDay"
+import { SEASON } from "@/utils/config"
 
 export default function Results() {
   return (
@@ -13,11 +14,10 @@ export default function Results() {
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient()
-  const season = 2022
   const matchDay = 0
 
-  await queryClient.prefetchQuery(["matches", [season, matchDay]], () =>
-    fetchMatches(season, matchDay)
+  await queryClient.prefetchQuery(["matches", [SEASON, matchDay]], () =>
+    fetchMatches(SEASON, matchDay)
   )
 
   return {

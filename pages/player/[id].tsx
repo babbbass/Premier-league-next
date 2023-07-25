@@ -18,7 +18,7 @@ export default function Player() {
 
   return (
     <main className={styles.main}>
-      <Civility id={id} season={2022} />
+      <Civility id={id} season={SEASON} />
     </main>
   )
 }

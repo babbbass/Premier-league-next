@@ -6,10 +6,10 @@ import { Error } from "@/components/error/error"
 import { rankingProps, RankingTeamProps } from "@/types/rankingType"
 import { fetchTeamsStanding } from "@/queries/standing"
 
-export function StandingTeams({ competitionId, season, active }: rankingProps) {
+export function StandingTeams({ season, active }: rankingProps) {
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["standingTeams", [season, competitionId]],
-    queryFn: () => fetchTeamsStanding(season, competitionId),
+    queryKey: ["standingTeams", season],
+    queryFn: () => fetchTeamsStanding(season),
   })
 
   // if (data?.results) {

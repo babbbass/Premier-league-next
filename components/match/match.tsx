@@ -15,7 +15,6 @@ export function Match({ matchId }: match) {
     queryKey: ["fetchMatch", matchId],
     queryFn: () => fetchMatch(matchId),
   })
-
   const match = data ? data.response : []
   return (
     <>

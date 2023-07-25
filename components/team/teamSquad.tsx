@@ -41,7 +41,7 @@ export function TeamSquad({ id }: Player) {
 
   return (
     <div className='w-full sm:w-2/3 flex flex-wrap'>
-      <HeaderTeam team={team} teamForm={teamFit} />
+      {/* <HeaderTeam team={team} teamForm={teamFit} /> */}
       <h3
         className={`w-full text-left text-purple-900 mt-6 mb-2 font-semibold text-2xl`}
       >

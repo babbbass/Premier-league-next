@@ -9,7 +9,7 @@ import {
 } from "@/queries/standing"
 import { StandingAssists } from "@/components/standings/assists"
 import { StandingScorers } from "@/components/standings/scorers"
-import { SEASON, COMPETITION_ID } from "@/utils/config"
+import { SEASON } from "@/utils/config"
 import { dehydrate, QueryClient } from "react-query"
 export default function Standings() {
   const [displayTeams, setDisplayTeams] = useState(true)
@@ -73,18 +73,12 @@ export default function Standings() {
             Passeurs
           </button>
         </div>
-        <StandingTeams
-          competitionId={COMPETITION_ID}
-          season={SEASON}
-          active={displayTeams}
-        ></StandingTeams>
+        <StandingTeams season={SEASON} active={displayTeams}></StandingTeams>
         <StandingScorers
-          competitionId={COMPETITION_ID}
           season={SEASON}
           active={displayScorers}
         ></StandingScorers>
         <StandingAssists
-          competitionId={COMPETITION_ID}
           season={SEASON}
           active={displayAssiters}
         ></StandingAssists>
@@ -96,18 +90,18 @@ export default function Standings() {
 export async function getServerSideProps() {
   const queryClient = new QueryClient()
 
-  await queryClient.fetchQuery(
-    ["standingTeams", [SEASON, COMPETITION_ID]],
-    () => fetchTeamsStanding(SEASON, COMPETITION_ID)
+  await queryClient.fetchQuery(["standingTeams", SEASON], () =>
+    fetchTeamsStanding(SEASON)
   )
 
-  await queryClient.fetchQuery(["topScorers", [SEASON, COMPETITION_ID]], () =>
-    fetchTopScorers(SEASON, COMPETITION_ID)
+  await queryClient.fetchQuery(["topScorers", SEASON], () =>
+    fetchTopScorers(SEASON)
   )
 
-  await queryClient.fetchQuery(["topAssits", [SEASON, COMPETITION_ID]], () =>
-    fetchTopAssists(SEASON, COMPETITION_ID)
+  await queryClient.fetchQuery(["topAssits", SEASON], () =>
+    fetchTopAssists(SEASON)
   )
+
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

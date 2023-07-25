@@ -5,29 +5,32 @@ import {
   requestOptions,
 } from "@/utils/config"
 
-export const fetchTeamsOfCompetition = async (competitionId: number) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/teams?league=${competitionId}&season=2022`,
-    requestOptions
+export const fetchTeamsOfCompetition = async (season: number) => {
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${season}/all`
   )
 
-  return await response.json()
+  const teams = await data.json()
+
+  return teams
 }
 
 export const fetchTeamSquad = async (teamId: number) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/players/squads?team=${teamId}`,
-    requestOptions
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${SEASON}/${teamId}/squad`
   )
 
-  return await response.json()
+  const team = await data.json()
+
+  return team
 }
 
 export const fetchTeamStatistics = async (teamId: number) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/teams/statistics?team=${teamId}&season=${SEASON}&league=${COMPETITION_ID}`,
-    requestOptions
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/${SEASON}/${teamId}/statistics`
   )
 
-  return await response.json()
+  const teamStatistics = await data.json()
+
+  return teamStatistics
 }

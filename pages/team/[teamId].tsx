@@ -41,6 +41,7 @@ export async function getServerSideProps(context: ContextServerSide) {
   await queryClient.fetchQuery(["teamSquad", TEAMID], () =>
     fetchTeamSquad(TEAMID)
   )
+
   await queryClient.prefetchQuery(["teamStatistics", TEAMID], () =>
     fetchTeamStatistics(TEAMID)
   )

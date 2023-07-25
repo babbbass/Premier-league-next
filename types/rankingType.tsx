@@ -1,5 +1,5 @@
 export type rankingProps = {
-  competitionId: number
+  competitionId?: number
   season: number
   active: boolean
 }

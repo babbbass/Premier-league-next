@@ -6,14 +6,10 @@ import { rankingProps, RankingScorersProps } from "@/types/rankingType"
 import { Error } from "@/components/error/error"
 import { fetchTopScorers } from "@/queries/standing"
 
-export function StandingScorers({
-  competitionId,
-  season,
-  active,
-}: rankingProps) {
+export function StandingScorers({ season, active }: rankingProps) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["topScorers", [season, competitionId]],
-    queryFn: () => fetchTopScorers(season, competitionId),
+    queryKey: ["topScorers", season],
+    queryFn: () => fetchTopScorers(season),
   })
 
   // if (data.results) {

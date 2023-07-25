@@ -35,10 +35,8 @@ export default function MatchDay() {
   const matches = data ? data.response : []
 
   // const matches = results
-
   const day =
     matches.length >= 1 ? parseInt(matches[0].league.round.split("-")[1]) : 0
-
   return (
     <>
       <div className='mt-6 text-purple-900 text-sm md:text-base text-center italic font-medium pl-2 h-8 flex justify-between items-center'>

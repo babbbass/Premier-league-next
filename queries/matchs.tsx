@@ -1,25 +1,21 @@
-import {
-  requestOptions,
-  BASE_FOOTBALL_URL,
-  COMPETITION_ID,
-} from "@/utils/config"
-
 export const fetchMatches = async (
   season: number,
   round: number | undefined
 ) => {
-  const url = round
-    ? `${BASE_FOOTBALL_URL}/fixtures?league=${COMPETITION_ID}&season=${season}&round=Regular+Season+-+${round}`
-    : `${BASE_FOOTBALL_URL}/fixtures?league=${COMPETITION_ID}&season=${season}&last=10`
-  console.log(url)
-  const response = await fetch(url, requestOptions)
+  const data = round
+    ? await fetch(`/api/matchs/${round}/results`)
+    : await fetch("/api/matchs/results")
+  const matches = await data.json()
 
-  return await response.json()
+  return matches
 }
 
 export const fetchMatch = async (matchId: number) => {
-  const url = `${BASE_FOOTBALL_URL}/fixtures?id=${matchId}`
-  const response = await fetch(url, requestOptions)
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/match/${matchId}`
+  )
 
-  return await response.json()
+  const matchDatas = await data.json()
+
+  return matchDatas
 }

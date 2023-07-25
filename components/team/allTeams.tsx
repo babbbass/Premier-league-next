@@ -7,17 +7,17 @@ import { TeamsProps } from "@/types/TeamsProps"
 import { Team } from "@/types/TeamProps"
 import { fetchTeamsOfCompetition } from "@/queries/team"
 
-export function AllTeams({ competitionId }: TeamsProps) {
+export function AllTeams({ season }: TeamsProps) {
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["allTeams", competitionId],
-    queryFn: () => fetchTeamsOfCompetition(competitionId),
+    queryKey: ["allTeams", season],
+    queryFn: () => fetchTeamsOfCompetition(season),
   })
 
-  if (!data.results) {
-    return (
-      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
-    )
-  }
+  // if (!data.results) {
+  //   return (
+  //     <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+  //   )
+  // }
 
   const teams = data ? data.response : []
 

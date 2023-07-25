@@ -14,11 +14,11 @@ export function Civility({ id, season }: PlayerProps["player"]) {
     queryFn: () => fetchPlayerDatas(id, season),
   })
 
-  if (!data?.results) {
-    return (
-      <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
-    )
-  }
+  // if (!data?.results) {
+  //   return (
+  //     <Error active={true} message='Nombre requete atteinte: 100 par Jour' />
+  //   )
+  // }
 
   const playerInfos = data ? data.response : []
 

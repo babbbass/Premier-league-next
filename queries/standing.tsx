@@ -1,37 +1,31 @@
 import { BASE_FOOTBALL_URL, requestOptions } from "@/utils/config"
 
-export const fetchTeamsStanding = async (
-  season: number,
-  competitionId: number
-) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/standings?league=${competitionId}&season=${season}`,
-    requestOptions
+export const fetchTeamsStanding = async (season: number) => {
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/standings/${season}/teams`
   )
 
-  return await response.json()
+  const standing = await data.json()
+
+  return standing
 }
 
-export const fetchTopAssists = async (
-  season: number,
-  competitionId: number
-) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/players/topassists?season=${season}&league=${competitionId}`,
-    requestOptions
+export const fetchTopAssists = async (season: number) => {
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/standings/${season}/assists`
   )
 
-  return await response.json()
+  const standing = await data.json()
+
+  return standing
 }
 
-export const fetchTopScorers = async (
-  season: number,
-  competitionId: number
-) => {
-  const response = await fetch(
-    `${BASE_FOOTBALL_URL}/players/topscorers?season=${season}&league=${competitionId}`,
-    requestOptions
+export const fetchTopScorers = async (season: number) => {
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/standings/${season}/scorers`
   )
 
-  return await response.json()
+  const scorers = await data.json()
+
+  return scorers
 }
