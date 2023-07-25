@@ -17,19 +17,19 @@ export function Menu() {
         </li>
         <li
           onClick={() => setActive(false)}
-          className='mb-6 hover:bg-purple-500 flex justify-center items-center md:m-2'
+          className='mb-6 hover:bg-purple-500 hover:text-white md:h-full md:w-1/3 flex justify-center items-center md:m-2'
         >
           <Link href='/standings'>Classement</Link>
         </li>
         <li
           onClick={() => setActive(false)}
-          className='mb-6 md:m-2 hover:bg-purple-500  flex justify-center items-center md:mx-10'
+          className='mb-6 md:m-2 hover:bg-purple-500 md:h-full md:w-1/3 hover:text-white flex justify-center items-center md:mx-10'
         >
           <Link href='/teams'>Equipes</Link>
         </li>
         <li
           onClick={() => setActive(false)}
-          className='mb-6 md:m-2 hover:bg-purple-500 flex justify-center items-center'
+          className='mb-6 md:m-2 hover:bg-purple-500 hover:text-white md:h-full md:w-1/3 flex justify-center items-center'
         >
           <Link href='/results'>Resultats</Link>
         </li>
