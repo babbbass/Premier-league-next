@@ -17,6 +17,6 @@ export default async function handler(
 
   const teams = await response.json()
 
-  res.status(200).json(teams)
+  // res.status(200).json(teams)
   return res.json(teams)
 }

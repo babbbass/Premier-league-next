@@ -33,6 +33,12 @@ export function Menu() {
         >
           <Link href='/results'>Resultats</Link>
         </li>
+        <li
+          onClick={() => setActive(false)}
+          className='mb-6 md:m-2 hover:bg-purple-500 hover:text-white md:h-full md:w-1/3 flex justify-center items-center'
+        >
+          <Link href='/transferts'>Transferts</Link>
+        </li>
       </ul>
     </div>
   )

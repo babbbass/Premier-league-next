@@ -60,3 +60,21 @@ export const fetchTeamStatistics = async (teamId: number) => {
 
   return teamStatistics
 }
+
+export const fetchTransfersTeam = async (teamId: number) => {
+  if (process.env.API_KEY) {
+    const response = await fetch(
+      `${BASE_FOOTBALL_URL}/transfers?team=${teamId}`,
+      requestOptions
+    )
+
+    return response.json()
+  }
+
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_HOST}/api/team/transfers/${teamId}`
+  )
+
+  const transfers = await data.json()
+  return transfers
+}
