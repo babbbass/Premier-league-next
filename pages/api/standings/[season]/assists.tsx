@@ -17,6 +17,5 @@ export default async function handler(
 
   const assists = await response.json()
 
-  res.status(200).json(assists)
   return res.json(assists)
 }

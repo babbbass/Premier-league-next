@@ -40,18 +40,18 @@ export default function MatchDay() {
   return (
     <>
       <div className='mt-6 text-purple-900 text-sm md:text-base text-center italic font-medium pl-2 h-8 flex justify-between items-center'>
-        <div className='mx-2 w-full cursor-pointer'>
+        <div className='mx-2 w-full cursor-pointer '>
           {day > 1 && (
             <span
               onClick={() => setMatchDay(() => day - 1)}
-              className='mr-10'
+              className='mr-10  hover:text-pink-500'
             >{`<<`}</span>
           )}
-          Journée {day}
+          <span className='hover:text-pink-500'>Journée {day}</span>
           {day < 38 && (
             <span
               onClick={() => setMatchDay(() => day + 1)}
-              className='ml-10'
+              className='ml-10 hover:text-pink-500'
             >{`>>`}</span>
           )}
         </div>

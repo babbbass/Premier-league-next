@@ -25,7 +25,7 @@ export function StandingScorers({ season, active }: rankingProps) {
         active ? "m-4" : "hidden"
       }`}
     >
-      <thead className='bg-slate-50 text-purple-500 h-10'>
+      <thead className='bg-fuchsia-950 text-slate-50 h-10'>
         <tr>
           <th>#</th>
           <th className='text-left pl-4'>Joueur</th>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useReducer } from "react"
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
 import { StandingTeams } from "@/components/standings/teams"
@@ -31,9 +31,9 @@ export default function Standings() {
         <h2 className={`text-red-500 mt-4 ${styles.titlePage}`}>Classement</h2>
         <div className='mb-4'>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-4 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-900 hover:text-slate-50 p-2 sm:p-4 cursor:pointer rounded-3xl ${
               displayTeams
-                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                ? "bg-purple-900 text-slate-50 font-bold rounded-3xl"
                 : ""
             }`}
             onClick={() => {
@@ -45,9 +45,9 @@ export default function Standings() {
             Equipes
           </button>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-4 sm:m-2 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-900 hover:text-slate-50 p-2 sm:p-4 sm:m-2 cursor:pointer rounded-3xl ${
               displayScorers
-                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                ? "bg-purple-900 text-slate-50 font-bold rounded-3xl"
                 : ""
             }`}
             onClick={() => {
@@ -59,9 +59,9 @@ export default function Standings() {
             Buteurs
           </button>
           <button
-            className={`hover:bg-purple-700 p-2 sm:p-4 cursor:pointer rounded-3xl ${
+            className={`hover:bg-purple-900 hover:text-slate-50 p-2 sm:p-4 cursor:pointer rounded-3xl ${
               displayAssiters
-                ? "bg-purple-700 text-slate-50 font-bold rounded-3xl"
+                ? "bg-purple-900 text-slate-50 font-bold rounded-3xl"
                 : ""
             }`}
             onClick={() => {
