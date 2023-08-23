@@ -5,19 +5,12 @@ import { fetchTeamsOfCompetition } from "@/queries/team"
 import styles from "@/styles/Home.module.css"
 import { dehydrate, QueryClient } from "react-query"
 import { SEASON } from "@/utils/config"
+import HeadTag from "@/components/tags/head"
 
 export default function Teams() {
   return (
     <>
-      <Head>
-        <title>Equipes - Premier league</title>
-        <meta
-          name='description'
-          content='Infos et résultats sur la premier league anglaise'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <HeadTag title='Equipes' content='Toutes les équipes de la ' />
       <main className={styles.main}>
         <AllTeams season={SEASON} />
       </main>

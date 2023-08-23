@@ -11,6 +11,8 @@ import { StandingAssists } from "@/components/standings/assists"
 import { StandingScorers } from "@/components/standings/scorers"
 import { SEASON } from "@/utils/config"
 import { dehydrate, QueryClient } from "react-query"
+import HeadTag from "@/components/tags/head"
+
 export default function Standings() {
   const [displayTeams, setDisplayTeams] = useState(true)
   const [displayScorers, setDisplayScorers] = useState(false)
@@ -18,15 +20,7 @@ export default function Standings() {
 
   return (
     <>
-      <Head>
-        <title>Classements - Premier league</title>
-        <meta
-          name='description'
-          content='Infos et résultats sur la premier league anglaise'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <HeadTag title='Classements' content='Infos et résultats sur la ' />
       <main className={styles.main}>
         <h2 className={`text-red-500 mt-4 ${styles.titlePage}`}>Classement</h2>
         <div className='mb-4'>

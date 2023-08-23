@@ -21,26 +21,29 @@ export default function Teams({ season }: TeamsProps) {
   const teams = data ? data.response : []
 
   return (
-    <div className={`flex flex-wrap justify-center items-center`}>
-      {teams.map((team: Team) => (
-        <Link
-          href={`/transfers/${team.team.id}`}
-          key={team.team.id}
-          className={`w-1/3 sm:w-[30%] border border-purple-700 rounded-xl h-20 italic m-4 py-4 overflow-hidden`}
-        >
-          <div className='h-1/3 flex flex-col text-xs sm:flex-row-reverse text-center justify-center items-center font-bold text-red-500 py-6'>
-            <div className='mb-2'>{team.team.name}</div>
-            <div className='flex justify-center sm:block'>
-              <img
-                className='w-1/5 sm:w-2/5'
-                src={team.team.logo}
-                alt={`${team.team.name}-logo`}
-                loading='lazy'
-              />
+    <div className='flex flex-col '>
+      <h1 className='font-medium text-2xl mb-6'>Transferts saison 2023-2024</h1>
+      <div className={`flex flex-wrap justify-center items-center`}>
+        {teams.map((team: Team) => (
+          <Link
+            href={`/transfers/${team.team.id}`}
+            key={team.team.id}
+            className={`w-1/3 sm:w-[30%] border border-purple-700 rounded-xl h-20 italic m-4 py-4 overflow-hidden`}
+          >
+            <div className='h-1/3 flex flex-col text-xs sm:flex-row-reverse text-center justify-center items-center font-bold text-red-500 py-6'>
+              <div className='mb-2'>{team.team.name}</div>
+              <div className='flex justify-center sm:block'>
+                <img
+                  className='w-1/5 sm:w-2/5'
+                  src={team.team.logo}
+                  alt={`${team.team.name}-logo`}
+                  loading='lazy'
+                />
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

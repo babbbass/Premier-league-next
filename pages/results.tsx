@@ -3,12 +3,16 @@ import { dehydrate, QueryClient } from "react-query"
 import { fetchMatches } from "@/queries/matchs"
 import MatchDay from "@/components/match/matchDay"
 import { SEASON } from "@/utils/config"
+import HeadTag from "@/components/tags/head"
 
 export default function Results() {
   return (
-    <div className='px-4 lg:w-1/2  md:w-4/6 md:m-auto flex flex-col'>
-      <MatchDay />
-    </div>
+    <>
+      <HeadTag title='Résultats' content='Scores et résultats' />
+      <div className='px-4 lg:w-1/2  md:w-4/6 md:m-auto flex flex-col'>
+        <MatchDay />
+      </div>
+    </>
   )
 }
 

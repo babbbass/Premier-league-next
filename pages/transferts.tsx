@@ -1,24 +1,14 @@
-import Head from "next/head"
 import Teams from "@/components/team/transfers/teams"
 import { fetchTeamsOfCompetition } from "@/queries/team"
 import { dehydrate, QueryClient } from "react-query"
 import { SEASON } from "@/utils/config"
+import HeadTag from "@/components/tags/head"
 
 export default function Transfert() {
   return (
     <>
-      <Head>
-        <title>Transfert - Premier league</title>
-        <meta
-          name='description'
-          content='transfert football premier league anglaise'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <div>
-        <Teams season={SEASON} />
-      </div>
+      <HeadTag title='transferts' content='transferts de la ' />
+      <Teams season={SEASON} />
     </>
   )
 }
